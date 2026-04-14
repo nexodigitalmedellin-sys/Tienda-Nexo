@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXO Digital Medellín | Tecnología a tu alcance</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
         .hover-scale { transition: transform 0.3s ease; }
         .hover-scale:hover { transform: scale(1.05); }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -18,7 +19,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="https://i.ibb.co/C3B386f4/Logo-Nexo.png" alt="NEXO Digital Medellín" class="h-18 w-auto">
+                    <img src="https://i.ibb.co/C3B386f4/Logo-Nexo.png" alt="NEXO Digital Medellín" class="h-12 w-auto">
                 </div>
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#" class="hover:text-blue-600">Inicio</a>
@@ -54,72 +55,74 @@
         </div>
     </header>
 
-    <section id="catalogo" class="py-16 bg-gray-100">
+    <section class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Nuestras Marcas</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fab fa-apple text-4xl mb-2"></i>
+                <div class="p-6 bg-white rounded-xl shadow-sm">
+                    <i class="fab fa-apple text-4xl mb-2 text-gray-800"></i>
                     <p class="font-bold uppercase tracking-widest">Apple</p>
                 </div>
-                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                <div class="p-6 bg-white rounded-xl shadow-sm">
                     <i class="fas fa-mobile-alt text-4xl mb-2 text-blue-500"></i>
                     <p class="font-bold uppercase tracking-widest">Samsung</p>
                 </div>
-                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                <div class="p-6 bg-white rounded-xl shadow-sm">
                     <i class="fas fa-bolt text-4xl mb-2 text-orange-500"></i>
                     <p class="font-bold uppercase tracking-widest">Xiaomi</p>
                 </div>
-                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                <div class="p-6 bg-white rounded-xl shadow-sm">
                     <i class="fas fa-headphones text-4xl mb-2 text-purple-500"></i>
                     <p class="font-bold uppercase tracking-widest">Accesorios</p>
                 </div>
             </div>
         </div>
     </section>
-<section id="iphone17" class="py-20 bg-black text-white">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Serie iPhone 17</h2>
-            <p class="text-xl text-gray-400">La nueva era de la potencia ha llegado a Medellín.</p>
+
+    <section id="catalogo" class="py-20 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Serie iPhone 17</h2>
+                <p class="text-xl text-gray-400">La nueva era de la potencia ha llegado a Medellín.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 hover:border-blue-500 transition-all duration-300 shadow-2xl">
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="https://i.ibb.co/zHxrCRL0/iphone17.png" alt="iPhone 17" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">iPhone 17</h3>
+                    <p class="text-gray-400 text-sm mb-4">Pantalla Super Retina XDR - 128GB/256GB</p>
+                    <p class="text-blue-400 font-bold text-3xl mb-6">Desde $4.200.000</p>
+                    <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Consultar Disponibilidad</a>
+                </div>
+
+                <div class="bg-gray-900 rounded-3xl p-8 border border-blue-500 shadow-blue-900/20 shadow-2xl relative scale-105">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase">El más buscado</span>
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="https://i.ibb.co/WW2fzrz4/iphone17pro.png" alt="iPhone 17 Pro" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">iPhone 17 Pro</h3>
+                    <p class="text-gray-400 text-sm mb-4">Cuerpo de Titanio - Chip A19 Pro</p>
+                    <p class="text-blue-400 font-bold text-3xl mb-6">Desde $5.450.000</p>
+                    <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017%20Pro" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Pedir ahora</a>
+                </div>
+
+                <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 hover:border-blue-500 transition-all duration-300 shadow-2xl">
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" alt="iPhone 17 Pro Max" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">iPhone 17 Pro Max</h3>
+                    <p class="text-gray-400 text-sm mb-4">Pantalla de 6.9" - Zoom Óptico 10x</p>
+                    <p class="text-blue-400 font-bold text-3xl mb-6">Desde $6.300.000</p>
+                    <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017%20Pro%20Max" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Lo quiero</a>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
-            <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 hover:border-blue-500 transition-all duration-300 shadow-2xl">
-                <div class="h-64 flex items-center justify-center mb-6">
-                    <img src="https://ibb.co/zHxrCRL0" alt="iPhone 17" class="h-full object-contain">
-                </div>
-                <h3 class="text-2xl font-bold mb-2">iPhone 17</h3>
-                <p class="text-gray-400 text-sm mb-4">Pantalla Super Retina XDR - 128GB/256GB</p>
-                <p class="text-blue-400 font-bold text-3xl mb-6">Desde $4.200.000</p>
-                <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Consultar Disponibilidad</a>
-            </div>
-
-            <div class="bg-gray-900 rounded-3xl p-8 border border-blue-500 shadow-blue-900/20 shadow-2xl relative scale-105">
-                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase">El más buscado</span>
-                <div class="h-64 flex items-center justify-center mb-6">
-                    <img src="https://ibb.co/WW2fzrz4" alt="iPhone 17 Pro" class="h-full object-contain">
-                </div>
-                <h3 class="text-2xl font-bold mb-2">iPhone 17 Pro</h3>
-                <p class="text-gray-400 text-sm mb-4">Cuerpo de Titanio - Chip A19 Pro</p>
-                <p class="text-blue-400 font-bold text-3xl mb-6">Desde $5.450.000</p>
-                <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017%20Pro" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Pedir ahora</a>
-            </div>
-
-            <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 hover:border-blue-500 transition-all duration-300 shadow-2xl">
-                <div class="h-64 flex items-center justify-center mb-6">
-                    <img src="https://ibb.co/Pss5GmJn" alt="iPhone 17 Pro Max" class="h-full object-contain">
-                </div>
-                <h3 class="text-2xl font-bold mb-2">iPhone 17 Pro Max</h3>
-                <p class="text-gray-400 text-sm mb-4">Pantalla de 6.9" - Zoom Óptico 10x</p>
-                <p class="text-blue-400 font-bold text-3xl mb-6">Desde $6.300.000</p>
-                <a href="https://wa.me/573003228199?text=Hola%20Nexo%20Digital,%20quiero%20info%20del%20iPhone%2017%20Pro%20Max" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition">Lo quiero</a>
-            </div>
-
-        </div>
-    </div>
-</section>
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-2xl font-bold mb-4">NEXO DIGITAL MEDELLÍN</p>
