@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXO Digital Medellín | Catálogo Oficial</title>
+    <title>NEXO Digital Medellín | Catálogo Oficial 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
         html { scroll-behavior: smooth; }
-        .product-card { transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); }
-        .img-container { height: 160px; display: flex; align-items: center; justify-content: center; }
-        .img-container img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        .product-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; display: flex; flex-col; justify-content: space-between; }
+        .product-card:hover { transform: translateY(-3px); border-color: #3b82f6; }
+        .img-container { height: 120px; display: flex; align-items: center; justify-content: center; padding: 5px; }
+        .img-container img { max-height: 100%; object-fit: contain; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -23,115 +23,218 @@
 
     <nav class="sticky top-0 z-50 glass border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
-            <span class="text-2xl font-black text-blue-600 italic">NEXO <span class="text-gray-900">DIGITAL</span></span>
-            <div class="hidden md:flex space-x-6 font-bold text-[10px] uppercase">
-                <a href="#iphone" class="hover:text-blue-600">iPhone</a>
+            <span class="text-xl font-black text-blue-600 tracking-tighter uppercase italic">Nexo Digital</span>
+            <div class="hidden lg:flex space-x-4 text-[10px] font-bold uppercase tracking-widest">
+                <a href="#apple" class="hover:text-blue-600">Apple</a>
+                <a href="#samsung" class="hover:text-blue-600">Samsung</a>
                 <a href="#android" class="hover:text-blue-600">Android</a>
-                <a href="#computo" class="hover:text-blue-600">Cómputo</a>
+                <a href="#hogar" class="hover:text-blue-600">Hogar/Gaming</a>
                 <a href="#servicios" class="hover:text-blue-600">Servicios</a>
             </div>
-            <a href="https://wa.me/573003228199" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-black">CATÁLOGO WA</a>
+            <a href="https://wa.me/573003228199" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-black">WHATSAPP</a>
         </div>
     </nav>
 
-    <header class="relative bg-white overflow-hidden py-16">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <header class="bg-white py-12 border-b">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-center md:text-left">
             <div>
-                <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block">Oferta del Día 🔥</span>
-                <h1 class="text-5xl md:text-7xl font-black text-gray-900 leading-tight">Tu Tecnología al <span class="text-blue-600">Mejor Precio.</span></h1>
-                <p class="mt-6 text-xl text-gray-500">iPhone 17 Pro Max y MacBooks M5 disponibles con entrega inmediata en Medellín.</p>
-                <div class="mt-8 flex gap-4">
-                    <a href="https://wa.me/573003228199?text=Hola!%20Quiero%20la%20oferta%20del%20día" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-black hover:bg-blue-700 transition shadow-lg">PEDIR OFERTA</a>
-                    <a href="#iphone" class="border border-gray-300 px-8 py-4 rounded-2xl font-black hover:bg-gray-50 transition">VER EQUIPOS</a>
+                <span class="bg-red-600 text-white text-[10px] px-3 py-1 rounded-full font-black uppercase mb-4 inline-block">Oferta del Día 🔥</span>
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 uppercase italic">Estrena en Nexo Digital</h1>
+                <p class="text-gray-500 mb-8 font-medium">Envíos gratis en Medellín, Plan Retoma y Garantía Real. Tu tecnología en las mejores manos.</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="https://wa.me/573003228199?text=Hola,%20quiero%20la%20oferta%20del%20dia" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-black text-sm shadow-lg hover:bg-blue-700">PEDIR AHORA</a>
+                    <a href="#servicios" class="border border-gray-300 px-8 py-3 rounded-xl font-black text-sm hover:bg-gray-50">SERVICIOS</a>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba3f21?auto=format&fit=crop&w=800&q=80" alt="iPhone" class="rounded-3xl shadow-2xl relative z-10">
-                <img src="https://images.unsplash.com/photo-1517336712461-481bf771df49?auto=format&fit=crop&w=600&q=80" alt="MacBook" class="absolute -bottom-10 -left-20 w-80 rounded-2xl shadow-2xl z-20 hidden md:block border-8 border-white">
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba3f21?auto=format&fit=crop&w=400&q=80" class="rounded-2xl shadow-xl border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1517336712461-481bf771df49?auto=format&fit=crop&w=400&q=80" class="rounded-2xl shadow-xl mt-8 border-4 border-white">
             </div>
         </div>
     </header>
 
-    <section id="iphone" class="py-16 bg-black text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-black mb-10 italic border-l-4 border-blue-500 pl-4">iPHONE PREMIUM & SELLADOS</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <script>
-                    const appleData = [
-                        {n: "iPhone 17 Pro Max 256GB", p: "$5.499.900", img: "https://i.ibb.co/Pss5GmJn/iphone17promax.png"},
-                        {n: "iPhone 17 256GB (Física)", p: "$3.749.900", img: "https://i.ibb.co/zHxrCRL0/iphone17.png"},
-                        {n: "iPhone 16 256GB (Física)", p: "$3.449.900", img: "https://i.ibb.co/v6xF53x1/iphone16.png"},
-                        {n: "MacBook Air M5 512GB", p: "$5.050.000", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"} // Placeholder imagen
-                    ];
-                    appleData.forEach(item => {
-                        document.write(`
-                            <div class="product-card bg-gray-900 p-4 rounded-3xl border border-gray-800 flex flex-col justify-between">
-                                <div class="img-container"><img src="${item.img}"></div>
-                                <h3 class="font-bold text-xs mt-4 uppercase">${item.n}</h3>
-                                <p class="text-blue-400 font-black text-xl">${item.p}</p>
-                                <a href="https://wa.me/573003228199" class="block bg-blue-600 text-center py-2 mt-4 rounded-xl font-bold text-[10px]">WHATSAPP</a>
-                            </div>
-                        `);
-                    });
-                </script>
+    <section id="apple" class="py-12 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-10 italic text-blue-400">APPLE PREMIUM STORE</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="product-card bg-gray-900 p-4 rounded-3xl border border-gray-800">
+                    <div class="img-container"><img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png"></div>
+                    <h3 class="text-[10px] font-bold mt-2 uppercase">iPhone 17 Pro Max 256GB</h3>
+                    <p class="text-blue-400 font-black text-xl">$5.499.900</p>
+                </div>
+                <div class="product-card bg-gray-900 p-4 rounded-3xl border border-gray-800">
+                    <div class="img-container"><img src="https://images.unsplash.com/photo-1517336712461-481bf771df49?auto=format&fit=crop&w=200&q=80"></div>
+                    <h3 class="text-[10px] font-bold mt-2 uppercase">MacBook Air M5 512GB</h3>
+                    <p class="text-blue-400 font-black text-xl">$5.050.000</p>
+                </div>
+                <div class="product-card bg-gray-900 p-4 rounded-3xl border border-gray-800">
+                    <div class="img-container"><img src="https://i.ibb.co/HfvwmGhX/ipads.png"></div>
+                    <h3 class="text-[10px] font-bold mt-2 uppercase">iPad Air M4 256GB</h3>
+                    <p class="text-blue-400 font-black text-xl">$3.050.000</p>
+                </div>
+                <div class="product-card bg-gray-900 p-4 rounded-3xl border border-gray-800">
+                    <div class="img-container"><img src="https://images.unsplash.com/photo-1546868871-70ca48370afd?auto=format&fit=crop&w=200&q=80"></div>
+                    <h3 class="text-[10px] font-bold mt-2 uppercase">Watch S11 46mm</h3>
+                    <p class="text-blue-400 font-black text-xl">$1.750.000</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="android" class="py-16 bg-white">
+    <section id="samsung" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-black mb-10 border-l-4 border-blue-600 pl-4">SAMSUNG & MULTIMARCA</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-                <script>
-                    const androidData = [
-                        {n: "S26 Ultra 512GB", p: "$5.139.900", img: "https://i.ibb.co/bMMMZLy6/premiumsamsung.png"},
-                        {n: "Z Flip 6 512GB", p: "$2.949.900", img: "https://i.ibb.co/XxJ69MDb/flip6.png"},
-                        {n: "Pixel 10 Pro XL", p: "$5.319.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "Honor Magic 8 Lite", p: "$1.384.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "A57 5G 512GB", p: "$2.599.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"}
-                    ];
-                    androidData.forEach(item => {
-                        document.write(`
-                            <div class="product-card border p-4 rounded-2xl text-center">
-                                <div class="img-container"><img src="${item.img}"></div>
-                                <h3 class="font-bold text-[10px] mt-2 uppercase">${item.n}</h3>
-                                <p class="text-blue-600 font-black">${item.p}</p>
-                                <a href="https://wa.me/573003228199" class="block bg-gray-100 py-1 mt-2 rounded font-bold text-[9px]">INFO</a>
-                            </div>
-                        `);
-                    });
-                </script>
+            <h2 class="text-2xl font-black mb-8 border-l-4 border-blue-600 pl-4 uppercase">Samsung Galaxy Store</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+                <div class="product-card p-4 rounded-2xl bg-gray-50">
+                    <div class="img-container"><img src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png"></div>
+                    <h3 class="text-[10px] font-bold uppercase">S26 Ultra 512GB</h3>
+                    <p class="text-blue-600 font-black">$5.139.900</p>
+                </div>
+                <div class="product-card p-4 rounded-2xl bg-gray-50 border-2 border-blue-500">
+                    <div class="img-container"><img src="https://i.ibb.co/XxJ69MDb/flip6.png"></div>
+                    <h3 class="text-[10px] font-bold uppercase text-blue-600">Z Flip 6 512GB</h3>
+                    <p class="text-blue-600 font-black">$2.949.900</p>
+                </div>
+                <div class="product-card p-4 rounded-2xl bg-gray-50">
+                    <div class="img-container"><img src="https://i.ibb.co/YBYJZQxR/samsunga.png"></div>
+                    <h3 class="text-[10px] font-bold uppercase">A57 5G 512GB</h3>
+                    <p class="text-blue-600 font-black">$2.599.900</p>
+                </div>
+                <div class="product-card p-4 rounded-2xl bg-gray-50">
+                    <div class="img-container"><img src="https://i.ibb.co/YBYJZQxR/samsunga.png"></div>
+                    <h3 class="text-[10px] font-bold uppercase">A17 4G 256GB</h3>
+                    <p class="text-blue-600 font-black">$809.900</p>
+                </div>
+                <div class="product-card p-4 rounded-2xl bg-gray-50">
+                    <div class="img-container"><img src="https://i.ibb.co/YBYJZQxR/samsunga.png"></div>
+                    <h3 class="text-[10px] font-bold uppercase">A07 128GB</h3>
+                    <p class="text-blue-600 font-black">$494.900</p>
+                </div>
+                <div class="product-card p-4 rounded-2xl bg-gray-50">
+                    <div class="img-container"><img src="https://i.ibb.co/YBYJZQxR/samsunga.png" class="opacity-10"></div>
+                    <h3 class="text-[10px] font-bold uppercase">Watch Ultra</h3>
+                    <p class="text-blue-600 font-black">$1.629.900</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-8 bg-black rounded-3xl">
-                <i class="fas fa-truck text-3xl text-blue-400 mb-4"></i>
-                <h3 class="font-black">DOMICILIO GRATIS</h3>
+    <section id="android" class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl font-black mb-8 border-l-4 border-green-600 pl-4 uppercase">Xiaomi, Motorola, Infinix, Tecno & Honor</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-orange-100">
+                    <p class="text-[8px] font-black text-orange-600 uppercase">Xiaomi</p>
+                    <h4 class="text-[10px] font-bold">Poco F8 Pro 512GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$3.139.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-orange-600 uppercase">Xiaomi</p>
+                    <h4 class="text-[10px] font-bold">Note 15 Pro 5G</h4>
+                    <p class="text-blue-600 font-black text-sm">$1.409.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-blue-100">
+                    <p class="text-[8px] font-black text-blue-700 uppercase">Motorola</p>
+                    <h4 class="text-[10px] font-bold">Edge 50 Fusion</h4>
+                    <p class="text-blue-600 font-black text-sm">$949.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-blue-700 uppercase">Motorola</p>
+                    <h4 class="text-[10px] font-bold">Moto G86 5G 256GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$964.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-green-100">
+                    <p class="text-[8px] font-black text-green-600 uppercase">Infinix</p>
+                    <h4 class="text-[10px] font-bold">Note Edge 5G 256GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$1.139.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-green-600 uppercase">Infinix</p>
+                    <h4 class="text-[10px] font-bold">Hot 60i 256GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$739.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-blue-400">
+                    <p class="text-[8px] font-black text-blue-900 uppercase">Tecno</p>
+                    <h4 class="text-[10px] font-bold">Pova Slim 5G 256GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$1.099.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-blue-900 uppercase">Tecno</p>
+                    <h4 class="text-[10px] font-bold">Camon 30S 256GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$819.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-blue-300">
+                    <p class="text-[8px] font-black text-blue-500 uppercase">Honor</p>
+                    <h4 class="text-[10px] font-bold">Magic 8 Lite 5G</h4>
+                    <p class="text-blue-600 font-black text-sm">$1.384.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-blue-500 uppercase">Honor</p>
+                    <h4 class="text-[10px] font-bold">X8D 512GB</h4>
+                    <p class="text-blue-600 font-black text-sm">$1.169.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-red-100">
+                    <p class="text-[8px] font-black text-red-600 uppercase">Flechas 4G/5G</p>
+                    <h4 class="text-[10px] font-bold">Nokia 110</h4>
+                    <p class="text-blue-600 font-black text-sm">$279.900</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl shadow-sm">
+                    <p class="text-[8px] font-black text-red-600 uppercase">Flechas 4G/5G</p>
+                    <h4 class="text-[10px] font-bold">Rompemuros (Todos)</h4>
+                    <p class="text-blue-600 font-black text-sm">$284.900</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hogar" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="playstation" class="bg-blue-900 text-white p-6 rounded-3xl shadow-xl">
+                <h3 class="font-black text-xl mb-4 italic uppercase"><i class="fab fa-playstation mr-2"></i> Gaming</h3>
+                <p class="flex justify-between border-b border-blue-800 py-2"><span>PS5 Digital 1TB</span><b>$2.239.900</b></p>
+                <p class="flex justify-between py-2"><span>PS5 Disco 1TB</span><b>$2.549.900</b></p>
+            </div>
+            <div id="computo" class="bg-gray-900 text-white p-6 rounded-3xl shadow-xl">
+                <h3 class="font-black text-xl mb-4 italic uppercase"><i class="fas fa-laptop mr-2"></i> Laptops</h3>
+                <p class="flex justify-between border-b border-gray-800 py-2 text-xs"><span>Galaxy Book4 i7</span><b>$2.199.900</b></p>
+                <p class="flex justify-between py-2 text-xs"><span>HP 15 R5 16GB</span><b>$1.949.900</b></p>
+            </div>
+            <div class="bg-purple-900 text-white p-6 rounded-3xl shadow-xl">
+                <h3 class="font-black text-xl mb-4 italic uppercase"><i class="fas fa-tv mr-2"></i> Televisores</h3>
+                <p class="flex justify-between border-b border-purple-800 py-2 text-xs"><span>IFFALCON 75" 4K</span><b>$2.749.900</b></p>
+                <p class="flex justify-between py-2 text-xs"><span>IFFALCON 55" 4K</span><b>$1.449.900</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-16 bg-gray-50 text-center">
+        <h2 class="text-3xl font-black mb-12 italic text-blue-600 uppercase">Servicios Nexo</h2>
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <i class="fas fa-truck text-4xl text-blue-500 mb-4"></i>
+                <h4 class="font-black mb-2">DOMICILIO GRATIS</h4>
                 <p class="text-gray-500 text-xs">Área metropolitana sin costo adicional.</p>
             </div>
-            <div class="p-8 bg-black rounded-3xl">
-                <i class="fas fa-sync text-3xl text-green-400 mb-4"></i>
-                <h3 class="font-black">PLAN RETOMA</h3>
-                <p class="text-gray-500 text-xs">Recibimos tu usado como parte de pago.</p>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <i class="fas fa-sync text-4xl text-green-500 mb-4"></i>
+                <h4 class="font-black mb-2">PLAN RETOMA</h4>
+                <p class="text-gray-500 text-xs">Recibimos tu equipo usado como parte de pago.</p>
             </div>
-            <div class="p-8 bg-black rounded-3xl">
-                <i class="fas fa-database text-3xl text-purple-400 mb-4"></i>
-                <h3 class="font-black">BACKUPS</h3>
-                <p class="text-gray-500 text-xs">Pasamos tus datos al equipo nuevo.</p>
+            <div class="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <i class="fas fa-database text-4xl text-purple-500 mb-4"></i>
+                <h4 class="font-black mb-2">TRANSFERENCIA TOTAL</h4>
+                <p class="text-gray-500 text-xs">Pasamos toda tu información al equipo nuevo.</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black text-white py-12 text-center border-t border-gray-900">
-        <p class="text-2xl font-black text-blue-600 mb-6">NEXO DIGITAL</p>
-        <div class="flex justify-center space-x-8 mb-8 text-3xl">
-            <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank"><i class="fab fa-facebook"></i></a>
+    <footer class="bg-black text-white py-12 text-center">
+        <p class="text-xl font-black text-blue-600 mb-6 italic tracking-tighter">NEXO DIGITAL MEDELLÍN</p>
+        <div class="flex justify-center space-x-10 mb-8 text-2xl">
+            <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook"></i></a>
         </div>
-        <p class="text-gray-600 text-[10px]">© 2026 Alexis Tuberquia - Medellín, Colombia</p>
+        <p class="text-gray-600 text-[10px] font-bold uppercase tracking-widest">© 2026 Alexis Tuberquia - CEO Nexo Digital</p>
     </footer>
 
 </body>
