@@ -3,232 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXO Digital Medellín | Catálogo Oficial 2026</title>
+    <title>NEXO Digital Medellín | Catálogo Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
         html { scroll-behavior: smooth; }
         .product-card { transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); }
-        .category-badge { font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; }
+        .product-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
+        .img-container { height: 180px; display: flex; align-items: center; justify-content: center; padding: 10px; }
+        .img-container img { max-height: 100%; max-width: 100%; object-fit: contain; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans text-sm">
 
     <nav class="sticky top-0 z-50 glass border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
             <div class="flex items-center">
-                <span class="text-2xl font-black text-blue-600 tracking-tighter">NEXO <span class="text-gray-900">DIGITAL</span></span>
+                <span class="text-2xl font-black text-blue-600 tracking-tighter italic">NEXO <span class="text-gray-900">DIGITAL</span></span>
             </div>
-            <div class="hidden lg:flex space-x-4 font-bold text-[10px] uppercase tracking-widest">
-                <a href="#iphone" class="hover:text-blue-600">iPhone</a>
-                <a href="#android" class="hover:text-blue-600">Android</a>
-                <a href="#computo" class="hover:text-blue-600">Laptops</a>
-                <a href="#playstation" class="hover:text-blue-600">Consolas</a>
-                <a href="#hogar" class="hover:text-blue-600">TV/Sonido</a>
+            <div class="hidden lg:flex space-x-6 font-bold text-[10px] uppercase">
+                <a href="#iphone-pro" class="hover:text-blue-600">iPhone Pro</a>
+                <a href="#iphone-std" class="hover:text-blue-600">iPhone</a>
+                <a href="#apple-watch" class="hover:text-blue-600">Watch/Audio</a>
+                <a href="#samsung" class="hover:text-blue-600">Samsung</a>
+                <a href="#servicios" class="hover:text-blue-600">Servicios</a>
             </div>
-            <a href="https://wa.me/573003228199" class="bg-green-500 text-white px-5 py-2 rounded-full text-xs font-black shadow-lg hover:bg-green-600 transition">WHATSAPP</a>
+            <a href="https://wa.me/573003228199" class="bg-green-500 text-white px-4 py-2 rounded-full text-xs font-black">WHATSAPP</a>
         </div>
     </nav>
 
-    <section class="py-10 bg-white">
+    <section id="iphone-pro" class="py-16 bg-black text-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <a href="#iphone" class="p-4 border rounded-2xl text-center hover:shadow-md transition">
-                    <i class="fab fa-apple text-2xl mb-1"></i>
-                    <p class="text-[10px] font-bold">APPLE</p>
-                    <p class="text-blue-600 text-xs font-black italic">Desde $1.320.000</p>
-                </a>
-                <a href="#samsung" class="p-4 border rounded-2xl text-center hover:shadow-md transition">
-                    <i class="fas fa-mobile-alt text-2xl mb-1 text-blue-600"></i>
-                    <p class="text-[10px] font-bold">SAMSUNG</p>
-                    <p class="text-blue-600 text-xs font-black italic">Desde $449.900</p>
-                </a>
-                <a href="#android" class="p-4 border rounded-2xl text-center hover:shadow-md transition">
-                    <i class="fab fa-android text-2xl mb-1 text-green-600"></i>
-                    <p class="text-[10px] font-bold">ANDROID</p>
-                    <p class="text-blue-600 text-xs font-black italic">Desde $484.900</p>
-                </a>
-                <a href="#playstation" class="p-4 border rounded-2xl text-center hover:shadow-md transition">
-                    <i class="fab fa-playstation text-2xl mb-1 text-blue-800"></i>
-                    <p class="text-[10px] font-bold">GAMING</p>
-                    <p class="text-blue-600 text-xs font-black italic">Desde $2.239.900</p>
-                </a>
-                <a href="#computo" class="p-4 border rounded-2xl text-center hover:shadow-md transition">
-                    <i class="fas fa-laptop text-2xl mb-1 text-gray-700"></i>
-                    <p class="text-[10px] font-bold">LAPTOPS</p>
-                    <p class="text-blue-600 text-xs font-black italic">Desde $1.599.900</p>
-                </a>
+            <h2 class="text-3xl font-black mb-10 text-center italic text-blue-400">LINEA iPHONE PRO</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <script>
+                    const pros = [
+                        {n: "iPhone 17 Pro Max 256GB", p: "$5.499.900", img: "https://i.ibb.co/Pss5GmJn/iphone17promax.png"},
+                        {n: "iPhone 16 Pro 256GB", p: "$3.200.000", img: "https://i.ibb.co/v6xF53x1/iphone16.png"},
+                        {n: "iPhone 15 Pro Max 512GB", p: "$3.100.000", img: "https://i.ibb.co/5gPpn0wQ/iphone15.png"},
+                        {n: "iPhone 14 Pro Max 256GB", p: "$2.550.000", img: "https://i.ibb.co/chzGWTBy/iphone14.png"}
+                    ];
+                    pros.forEach(i => {
+                        document.write(`
+                            <div class="product-card bg-gray-900 border border-gray-800 p-4 rounded-3xl text-center">
+                                <div class="img-container"><img src="${i.img}" alt="${i.n}"></div>
+                                <h3 class="font-bold mt-4">${i.n}</h3>
+                                <p class="text-blue-400 font-black text-xl mt-1">${i.p}</p>
+                                <a href="https://wa.me/573003228199?text=Me%20interesa%20el%20${encodeURIComponent(i.n)}" class="block bg-blue-600 py-2 rounded-xl mt-4 font-bold text-xs uppercase">Lo quiero</a>
+                            </div>
+                        `);
+                    });
+                </script>
             </div>
         </div>
     </section>
 
-    <section id="iphone" class="py-16 bg-black text-white">
+    <section id="iphone-std" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-black mb-10 text-center italic tracking-tighter">APPLE PREMIUM STORE</h2>
+            <h2 class="text-3xl font-black mb-10 text-center italic">iPHONE ESTÁNDAR & PLUS</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <script>
+                    const stds = [
+                        {n: "iPhone 17 256GB (Física)", p: "$3.749.900", img: "https://i.ibb.co/zHxrCRL0/iphone17.png"},
+                        {n: "iPhone 16 256GB (Física)", p: "$3.449.900", img: "https://i.ibb.co/v6xF53x1/iphone16.png"},
+                        {n: "iPhone 15 128GB E-Sim", p: "$2.000.000", img: "https://i.ibb.co/5gPpn0wQ/iphone15.png"},
+                        {n: "iPhone 13 128GB", p: "$1.480.000", img: "https://i.ibb.co/YgZwjDn/iphone13.png"}
+                    ];
+                    stds.forEach(i => {
+                        document.write(`
+                            <div class="product-card border p-4 rounded-3xl text-center bg-gray-50">
+                                <div class="img-container"><img src="${i.img}" alt="${i.n}"></div>
+                                <h3 class="font-bold mt-2 text-xs">${i.n}</h3>
+                                <p class="text-blue-600 font-black text-lg">${i.p}</p>
+                                <a href="https://wa.me/573003228199" class="block bg-black text-white py-2 rounded-xl mt-3 font-bold text-[10px]">INFO</a>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section id="apple-watch" class="py-16 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-10 italic">APPLE ECOSYSTEM</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="product-card bg-gray-900 p-6 rounded-3xl border border-gray-800 relative overflow-hidden">
-                    <span class="absolute top-4 right-4 bg-blue-600 text-[10px] font-bold px-2 py-1 rounded">NUEVO</span>
-                    <img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" class="h-48 mx-auto object-contain mb-4">
-                    <h3 class="font-bold text-lg">iPhone 17 Pro Max 256GB</h3>
-                    <p class="text-blue-400 font-black text-2xl mt-2">$5.499.900</p>
-                    <a href="https://wa.me/573003228199?text=Hola%20Nexo,%20me%20interesa%20el%20iPhone%2017%20Pro%20Max" class="block bg-blue-600 text-center py-3 mt-4 rounded-xl font-bold">LO QUIERO</a>
-                </div>
-                <div class="product-card bg-gray-900 p-6 rounded-3xl border border-gray-800">
-                    <img src="https://i.ibb.co/YBYJZQxR/samsunga.png" class="h-48 mx-auto object-contain mb-4 opacity-0"> <div class="absolute inset-0 flex flex-col justify-center p-6 bg-blue-900/20">
-                        <h3 class="font-bold text-xl">MacBook Pro M5</h3>
-                        <p class="text-sm text-gray-400">24GB RAM - 1TB SSD</p>
-                        <p class="text-blue-400 font-black text-2xl mt-2">$9.800.000</p>
-                        <a href="https://wa.me/573003228199" class="mt-4 text-xs font-bold underline">VER MÁS MACBOOKS</a>
-                    </div>
-                </div>
-                <div class="product-card bg-gray-900 p-6 rounded-3xl border border-gray-800 text-center">
-                    <h3 class="font-bold">Apple Watch S11</h3>
-                    <p class="text-blue-400 font-black text-xl mt-2">$1.650.000</p>
-                    <p class="text-[10px] text-gray-500 mt-1">42mm / 46mm Disponibles</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 id="samsung" class="text-2xl font-black mb-6 border-b-4 border-blue-600 inline-block">SAMSUNG GALAXY</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-                <script>
-                    const samsungList = [
-                        {n: "Samsung S26 Ultra 512GB", p: "$5.139.900", img: "https://i.ibb.co/bMMMZLy6/premiumsamsung.png"},
-                        {n: "Samsung Z Flip 6 512GB", p: "$2.949.900", img: "https://i.ibb.co/XxJ69MDb/flip6.png"},
-                        {n: "Samsung S25 256GB", p: "$2.879.900", img: "https://i.ibb.co/bMMMZLy6/premiumsamsung.png"},
-                        {n: "Samsung A57 5G 512GB", p: "$2.599.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "Samsung A37 5G 256GB", p: "$1.839.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "Samsung A16 128GB", p: "$579.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "Samsung A07 64GB", p: "$449.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"},
-                        {n: "Watch Ultra", p: "$1.629.900", img: "https://i.ibb.co/YBYJZQxR/samsunga.png"}
-                    ];
-                    samsungList.forEach(item => {
-                        document.write(`
-                            <div class="product-card border p-4 rounded-2xl flex flex-col justify-between">
-                                <img src="${item.img}" class="h-32 object-contain mx-auto">
-                                <h4 class="text-[11px] font-bold mt-2 uppercase">${item.n}</h4>
-                                <p class="text-blue-600 font-black text-sm">${item.p}</p>
-                                <a href="https://wa.me/573003228199?text=Me%20interesa%20${encodeURIComponent(item.n)}" class="mt-2 text-[9px] bg-gray-100 py-1 text-center rounded font-bold">INFO</a>
-                            </div>
-                        `);
-                    });
-                </script>
-            </div>
-
-            <h2 id="android" class="text-2xl font-black mb-6 border-b-4 border-green-500 inline-block uppercase">Android Multimarca</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
-                <script>
-                    const androidList = [
-                        {n: "Pixel 10 Pro XL", p: "$5.319.900"},
-                        {n: "Oppo A5 5G 256GB", p: "$1.039.900"},
-                        {n: "Moto Edge 50 Fusion", p: "$949.900"},
-                        {n: "Moto G86 5G 256GB", p: "$964.900"},
-                        {n: "Honor Magic 8 Lite", p: "$1.384.900"},
-                        {n: "Camon 30S 256GB", p: "$819.900"},
-                        {n: "Infinix Note Edge", p: "$1.139.900"},
-                        {n: "Redmi Note 15 Pro", p: "$1.409.900"},
-                        {n: "Poco F8 Pro 512GB", p: "$3.139.900"},
-                        {n: "Xiaomi 15T 512GB", p: "$2.529.900"}
-                    ];
-                    androidList.forEach(item => {
-                        document.write(`
-                            <div class="product-card border p-3 rounded-xl bg-gray-50">
-                                <h4 class="text-[10px] font-black">${item.n}</h4>
-                                <p class="text-blue-600 font-bold text-xs">${item.p}</p>
-                                <a href="https://wa.me/573003228199" class="text-[8px] text-gray-500 underline">Consultar</a>
-                            </div>
-                        `);
-                    });
-                </script>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div id="playstation" class="bg-blue-50 p-6 rounded-3xl">
-                    <h2 class="text-xl font-black mb-4"><i class="fab fa-playstation mr-2 text-blue-800"></i> GAMING</h2>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex justify-between border-b py-1"><span>PS5 Digital 1TB</span><span class="font-bold">$2.239.900</span></div>
-                        <div class="flex justify-between border-b py-1"><span>PS5 Disco 1TB</span><span class="font-bold">$2.549.900</span></div>
-                    </div>
-                </div>
-                <div id="computo" class="bg-gray-100 p-6 rounded-3xl">
-                    <h2 class="text-xl font-black mb-4"><i class="fas fa-laptop mr-2"></i> PORTÁTILES</h2>
-                    <div class="space-y-2 text-sm text-[11px]">
-                        <div class="flex justify-between border-b py-1"><span>Galaxy Book4 i7</span><span class="font-bold">$2.199.900</span></div>
-                        <div class="flex justify-between border-b py-1"><span>HP 15 R5 16GB</span><span class="font-bold">$1.949.900</span></div>
-                        <div class="flex justify-between border-b py-1"><span>Lenovo IdeaPad R3</span><span class="font-bold">$1.599.900</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hogar" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-2xl font-black mb-8 text-center uppercase tracking-tighter">TV, Audio & Movilidad</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <h3 class="font-bold border-b pb-2 mb-4">Televisores IFFALCON</h3>
-                    <ul class="text-xs space-y-2">
-                        <li>75" 4K: <b>$2.749.900</b></li>
-                        <li>55" 4K: <b>$1.449.900</b></li>
-                        <li>43" FHD: <b>$1.049.900</b></li>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border">
+                    <i class="fas fa-laptop text-4xl mb-4 text-gray-800"></i>
+                    <h3 class="font-black text-xl mb-4 uppercase text-blue-600">MacBooks</h3>
+                    <ul class="text-left space-y-3">
+                        <li class="flex justify-between border-b pb-1"><span>Air M5 512GB</span><b>$5.050.000</b></li>
+                        <li class="flex justify-between border-b pb-1"><span>Pro M5 24GB/1TB</span><b>$9.800.000</b></li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <h3 class="font-bold border-b pb-2 mb-4">Sonido & Otros</h3>
-                    <ul class="text-xs space-y-2">
-                        <li>Bose S1 Pro Plus: <b>$3.249.900</b></li>
-                        <li>JBL Flip 7: <b>$589.900</b></li>
-                        <li>Scooter Honor: <b>$1.569.900</b></li>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border">
+                    <i class="fas fa-clock text-4xl mb-4 text-red-500"></i>
+                    <h3 class="font-black text-xl mb-4 uppercase text-blue-600">Apple Watch</h3>
+                    <ul class="text-left space-y-3">
+                        <li class="flex justify-between border-b pb-1"><span>S11 42mm</span><b>$1.650.000</b></li>
+                        <li class="flex justify-between border-b pb-1"><span>S11 46mm</span><b>$1.750.000</b></li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <h3 class="font-bold border-b pb-2 mb-4">TV Sticks</h3>
-                    <ul class="text-xs space-y-2">
-                        <li>Amazon Fire Stick HD: <b>$269.900</b></li>
-                        <li>Roku 4K: <b>$249.900</b></li>
-                        <li>Onn Full HD: <b>$259.900</b></li>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border">
+                    <i class="fas fa-headphones text-4xl mb-4 text-blue-600"></i>
+                    <h3 class="font-black text-xl mb-4 uppercase text-blue-600">AirPods & Más</h3>
+                    <ul class="text-left space-y-3">
+                        <li class="flex justify-between border-b pb-1"><span>AirPods Pro 3</span><b>$1.320.000</b></li>
+                        <li class="flex justify-between border-b pb-1"><span>Cubo 20W Orig.</span><b>$80.000</b></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="py-20 bg-gray-900 text-white text-center">
-        <h2 class="text-3xl font-black mb-12 text-blue-400 italic uppercase">Servicios NEXO Medellín</h2>
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs">
-            <div class="p-8 border border-gray-800 rounded-3xl bg-black">
-                <i class="fas fa-truck text-3xl mb-4 text-blue-400"></i>
-                <h3 class="font-bold text-lg mb-2 tracking-widest">DOMICILIO GRATIS</h3>
-                <p class="text-gray-500">Área Metropolitana sin costo adicional. ¡Entrega el mismo día!</p>
-            </div>
-            <div class="p-8 border border-gray-800 rounded-3xl bg-black">
-                <i class="fas fa-sync text-3xl mb-4 text-green-400"></i>
-                <h3 class="font-bold text-lg mb-2 tracking-widest">PLAN RETOMA</h3>
-                <p class="text-gray-500">Recibimos tu equipo usado como parte de pago. Valoración inmediata.</p>
-            </div>
-            <div class="p-8 border border-gray-800 rounded-3xl bg-black">
-                <i class="fas fa-database text-3xl mb-4 text-purple-400"></i>
-                <h3 class="font-bold text-lg mb-2 tracking-widest">TRANSFERENCIA TOTAL</h3>
-                <p class="text-gray-500">Configuramos tu equipo nuevo y pasamos toda tu información.</p>
             </div>
         </div>
     </section>
 
     <footer class="bg-black text-white py-12 text-center">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="text-2xl font-black mb-6 tracking-tighter text-blue-500">NEXO DIGITAL</p>
-            <div class="flex justify-center space-x-10 mb-8 text-3xl">
-                <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fab fa-facebook"></i></a>
-            </div>
-            <p class="text-gray-600 text-[10px] uppercase tracking-widest">© 2026 Alexis Tuberquia - CEO Nexo Digital Medellín</p>
+        <p class="text-2xl font-black text-blue-500 italic mb-6">NEXO DIGITAL MEDELLÍN</p>
+        <div class="flex justify-center space-x-8 mb-8 text-3xl">
+            <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank"><i class="fab fa-facebook"></i></a>
         </div>
+        <p class="text-gray-600 text-[10px] uppercase tracking-widest">© 2026 Alexis Tuberquia - CEO</p>
     </footer>
 
 </body>
