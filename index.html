@@ -3,244 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXO Digital Medellín | Catálogo Oficial 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>NEXO Digital Medellín | Catálogo Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --blue: #0057FF;
-            --blue-dark: #003FBB;
-            --black: #0A0A0A;
-            --gray-900: #111111;
-            --gray-800: #1C1C1E;
-            --gray-100: #F5F5F7;
-            --white: #FFFFFF;
-            --red: #FF3B30;
-            --green: #30D158;
-            --font-display: 'Barlow Condensed', sans-serif;
-            --font-body: 'Barlow', sans-serif;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); background: var(--white); color: var(--black); overflow-x: hidden; }
-
-        /* NAV */
-        nav {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            height: 60px;
-            display: flex; align-items: center;
-        }
-        .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 900; font-style: italic; color: var(--blue); letter-spacing: -1px; text-transform: uppercase; text-decoration: none; }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--black); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
-        .nav-links a:hover { opacity: 1; color: var(--blue); }
-        .nav-cta { background: var(--blue); color: white; padding: 9px 20px; border-radius: 50px; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
-        .nav-cta:hover { background: var(--blue-dark); }
-
-        /* HERO */
-        .hero {
-            min-height: 80vh;
-            background: var(--black);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-        .hero-content { padding: 80px 60px 80px 80px; position: relative; z-index: 2; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--red); color: white; font-size: 10px; font-weight: 700; padding: 5px 12px; border-radius: 50px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px; }
-        .hero-title { font-family: var(--font-display); font-size: clamp(50px, 7vw, 90px); font-weight: 900; font-style: italic; line-height: 0.9; color: white; text-transform: uppercase; margin-bottom: 24px; }
-        .hero-title span { color: var(--blue); }
-        .hero-sub { color: rgba(255,255,255,0.55); font-size: 17px; margin-bottom: 40px; }
-        .hero-btns { display: flex; gap: 12px; }
-        
-        /* Imágenes Hero Corregidas */
-        .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
-        .hero-img-main { width: 300px; z-index: 2; filter: drop-shadow(0 20px 50px rgba(0,87,255,0.3)); animation: float 4s ease-in-out infinite; }
-        .hero-img-logo { position: absolute; width: 180px; opacity: 0.2; transform: translate(-100px, -100px); }
-
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
-
-        /* SECTION HEADERS */
-        .section-header { text-align: center; margin-bottom: 50px; padding: 0 24px; }
-        .section-title { font-family: var(--font-display); font-size: 50px; font-weight: 900; font-style: italic; text-transform: uppercase; color: var(--black); }
-        .section-title.light { color: white; }
-
-        /* CARDS */
-        .apple-grid, .samsung-grid, .android-grid { 
-            max-width: 1280px; margin: 0 auto; padding: 0 24px;
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; 
-        }
-        .card {
-            background: var(--white); border-radius: 24px; padding: 30px;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease;
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--blue); }
-        .card.dark { background: var(--gray-800); border-color: rgba(255,255,255,0.05); color: white; }
-        .card.dark:hover { background: #252528; }
-
-        .card-img { width: 180px; height: 180px; object-fit: contain; margin-bottom: 20px; }
-        .card-price { font-family: var(--font-display); font-size: 32px; font-weight: 900; color: var(--blue); margin-bottom: 20px; }
-        .card-btn { background: var(--blue); color: white; padding: 12px 0; border-radius: 50px; width: 100%; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; }
-
-        /* SECTIONS BACKGROUNDS */
-        #apple { background: var(--gray-900); padding: 100px 0; }
-        #samsung { background: var(--white); padding: 100px 0; }
-        #android { background: var(--gray-100); padding: 100px 0; }
-        
-        /* HOGAR CARDS */
-        .hogar-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 24px; }
-        .hogar-card { padding: 40px; border-radius: 30px; color: white; }
-        .hogar-card.blue { background: linear-gradient(135deg, #003087, #0057FF); }
-        .hogar-card.dark { background: #1C1C1E; border: 1px solid #333; }
-        .hogar-card.purple { background: linear-gradient(135deg, #3A0CA3, #7209B7); }
-
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; box-shadow: 0 10px 30px rgba(48,209,88,0.3); }
-
-        @media (max-width: 768px) { .hero { grid-template-columns: 1fr; text-align: center; } .hero-content { padding: 60px 24px; } .hero-visual { display: none; } }
+        .product-card { transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 87, 255, 0.2); }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 font-sans font-bold">
 
-<a href="https://wa.me/573003228199" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/573003228199" class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
 
-<nav>
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">Nexo Digital</a>
-        <div class="nav-links">
-            <a href="#apple">Apple</a>
-            <a href="#samsung">Samsung</a>
-            <a href="#android">Android</a>
-            <a href="#hogar">Gaming/TV</a>
-            <a href="#servicios">Servicios</a>
+    <nav class="sticky top-0 z-50 glass border-b-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between h-20 items-center">
+            <span class="text-3xl font-black text-blue-600 italic tracking-tighter uppercase">NEXO <span class="text-black">DIGITAL</span></span>
+            <div class="hidden lg:flex space-x-6 text-xs uppercase tracking-tighter">
+                <a href="#apple" class="hover:text-blue-600">iPhone</a>
+                <a href="#samsung" class="hover:text-blue-600">Samsung</a>
+                <a href="#android" class="hover:text-blue-600">Android</a>
+                <a href="#servicios" class="hover:text-blue-600">Servicios</a>
+            </div>
+            <a href="https://wa.me/573003228199" class="bg-blue-600 text-white px-8 py-3 rounded-full text-sm font-black shadow-lg">WHATSAPP</a>
         </div>
-        <a href="https://wa.me/573003228199" class="nav-cta"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    </div>
-</nav>
+    </nav>
 
-<header class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">🔥 Oferta del Día</div>
-        <h1 class="hero-title">Tecnología<br>al <span>Límite.</span></h1>
-        <p class="hero-sub">Envíos GRATIS en Medellín. Plan Retoma · Garantía Real.</p>
-        <div class="hero-btns">
-            <a href="https://wa.me/573003228199?text=Hola%20Nexo,%20quiero%20la%20oferta" class="btn-primary">Pedir Ahora</a>
-            <a href="#servicios" class="btn-outline">Ver Servicios</a>
+    <header class="bg-white py-20 border-b">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-red-600 text-white text-xs font-black px-4 py-1 rounded-full uppercase mb-4 inline-block">Oferta del Día 🔥</span>
+                <h1 class="text-6xl lg:text-8xl font-black leading-none mb-6 italic uppercase tracking-tighter">Tecnología al <span class="text-blue-600 text-outline">Límite.</span></h1>
+                <p class="text-gray-500 text-xl mb-10 italic">Envíos GRATIS Medellín · Plan Retoma · Garantía Real.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/573003228199?text=Hola%20Nexo,%20quiero%20la%20oferta" class="bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-lg shadow-2xl hover:bg-blue-700 transition-all uppercase italic">Pedir Ahora</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <img src="https://i.ibb.co/zHxrCRL0/iphone17.png" class="w-2/3 rounded-3xl shadow-2xl border-8 border-white z-10 rotate-3">
+                <img src="https://i.ibb.co/C3B386f4/Logo-Nexo.png" class="absolute -bottom-10 -left-10 w-1/2 opacity-20 -z-0">
+            </div>
         </div>
-    </div>
-    <div class="hero-visual">
-        <img src="https://i.ibb.co/C3B386f4/Logo-Nexo.png" class="hero-img-logo" alt="Nexo Logo">
-        <img src="https://i.ibb.co/zHxrCRL0/iphone17.png" class="hero-img-main" alt="iPhone 17 Hero">
-    </div>
-</header>
+    </header>
 
-<section id="apple">
-    <div class="section-header">
-        <h2 class="section-title light">Línea iPhone Pro</h2>
-    </div>
-    <div class="apple-grid">
-        <div class="card dark">
-            <img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" class="card-img" alt="iPhone 17 Pro Max">
-            <p style="font-size:10px; color:var(--blue); font-weight:800; margin-bottom:5px;">NUEVO 2026</p>
-            <h3 style="font-size:16px; margin-bottom:15px;">iPhone 17 Pro Max 256GB</h3>
-            <div class="card-price">$5.499.900</div>
-            <a href="https://wa.me/573003228199?text=Interesado%20en%20iPhone%2017%20Pro%20Max" class="card-btn">Comprar</a>
+    <section id="apple" class="py-20 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-5xl font-black mb-16 italic text-center text-blue-500 uppercase tracking-widest">Apple Premium</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="product-card bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-center">
+                    <img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" class="h-56 mx-auto mb-6 object-contain">
+                    <h3 class="font-black text-sm uppercase mb-2">iPhone 17 Pro Max 256GB</h3>
+                    <p class="text-blue-500 font-black text-3xl mb-6">$5.499.900</p>
+                    <a href="https://wa.me/573003228199" class="bg-blue-600 block py-3 rounded-xl font-black uppercase text-xs">Comprar</a>
+                </div>
+                <div class="product-card bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-center">
+                    <img src="https://i.ibb.co/QFgmy9hb/macbook.png" class="h-56 mx-auto mb-6 object-contain">
+                    <h3 class="font-black text-sm uppercase mb-2">MacBook Pro M5 14"</h3>
+                    <p class="text-blue-500 font-black text-3xl mb-6">$9.800.000</p>
+                    <a href="https://wa.me/573003228199" class="bg-blue-600 block py-3 rounded-xl font-black uppercase text-xs">Comprar</a>
+                </div>
+                <div class="product-card bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-center">
+                    <img src="https://i.ibb.co/v6xF53x1/iphone16.png" class="h-56 mx-auto mb-6 object-contain">
+                    <h3 class="font-black text-sm uppercase mb-2">iPhone 16 Pro 256GB</h3>
+                    <p class="text-blue-500 font-black text-3xl mb-6">$3.139.900</p>
+                    <a href="https://wa.me/573003228199" class="bg-blue-600 block py-3 rounded-xl font-black uppercase text-xs">Comprar</a>
+                </div>
+                <div class="product-card bg-zinc-900 p-8 rounded-3xl border border-zinc-800 text-center">
+                    <img src="https://i.ibb.co/HfvwmGhX/ipads.png" class="h-56 mx-auto mb-6 object-contain">
+                    <h3 class="font-black text-sm uppercase mb-2">iPad Air M4 256GB</h3>
+                    <p class="text-blue-500 font-black text-3xl mb-6">$3.050.000</p>
+                    <a href="https://wa.me/573003228199" class="bg-blue-600 block py-3 rounded-xl font-black uppercase text-xs">Comprar</a>
+                </div>
+            </div>
         </div>
-        <div class="card dark">
-            <img src="https://i.ibb.co/v6xF53x1/iphone16.png" class="card-img" alt="iPhone 16 Pro">
-            <p style="font-size:10px; color:var(--blue); font-weight:800; margin-bottom:5px;">PREFERIDO</p>
-            <h3 style="font-size:16px; margin-bottom:15px;">iPhone 16 Pro 256GB</h3>
-            <div class="card-price">$3.139.900</div>
-            <a href="https://wa.me/573003228199?text=Interesado%20en%20iPhone%2016%20Pro" class="card-btn">Comprar</a>
+    </section>
+    <section id="samsung" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 border-l-8 border-blue-600 pl-6 uppercase italic">Samsung Galaxy</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+                <div class="product-card p-6 rounded-3xl bg-gray-50 border">
+                    <img src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" class="h-40 mx-auto mb-4">
+                    <h3 class="text-xs font-black uppercase">S26 ULTRA 512GB</h3>
+                    <p class="text-blue-600 font-black text-2xl mb-4">$5.139.900</p>
+                    <a href="https://wa.me/573003228199" class="bg-black text-white py-2 rounded-lg text-[10px] uppercase">WhatsApp</a>
+                </div>
+                <div class="product-card p-6 rounded-3xl bg-blue-50 border-2 border-blue-600">
+                    <img src="https://i.ibb.co/XxJ69MDb/flip6.png" class="h-40 mx-auto mb-4">
+                    <h3 class="text-xs font-black uppercase text-blue-600">Z FLIP 6 512GB</h3>
+                    <p class="text-blue-600 font-black text-2xl mb-4">$2.949.900</p>
+                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white py-2 rounded-lg text-[10px] uppercase">WhatsApp</a>
+                </div>
+                <div class="product-card p-6 rounded-3xl bg-gray-50 border">
+                    <img src="https://i.ibb.co/YBYJZQxR/samsunga.png" class="h-40 mx-auto mb-4">
+                    <h3 class="text-xs font-black uppercase">A57 5G 512GB</h3>
+                    <p class="text-blue-600 font-black text-2xl mb-4">$2.599.900</p>
+                    <a href="https://wa.me/573003228199" class="bg-black text-white py-2 rounded-lg text-[10px] uppercase">WhatsApp</a>
+                </div>
+            </div>
         </div>
-        <div class="card dark">
-            <img src="https://i.ibb.co/QFgmy9hb/macbook.png" class="card-img" alt="MacBook M5">
-            <p style="font-size:10px; color:var(--blue); font-weight:800; margin-bottom:5px;">CHIP M5</p>
-            <h3 style="font-size:16px; margin-bottom:15px;">MacBook Pro M5 14"</h3>
-            <div class="card-price">$9.800.000</div>
-            <a href="https://wa.me/573003228199?text=Interesado%20en%20Macbook%20M5" class="card-btn">Comprar</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="samsung">
-    <div class="section-header">
-        <h2 class="section-title">Samsung Galaxy</h2>
-    </div>
-    <div class="samsung-grid">
-        <div class="card">
-            <img src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" class="card-img" alt="S26 Ultra">
-            <h3 style="font-size:14px; text-transform:uppercase;">S26 Ultra 512GB</h3>
-            <div class="card-price">$5.139.900</div>
-            <a href="https://wa.me/573003228199" class="card-btn" style="background:var(--black);">WhatsApp</a>
+    <section id="android" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 border-l-8 border-green-500 pl-6 uppercase italic">Multimarca Android</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <p class="text-[9px] font-black text-blue-700 uppercase mb-1">Motorola</p>
+                    <h4 class="text-xs font-black mb-2">Edge 50 Fusion</h4>
+                    <p class="text-blue-600 font-black text-xl mb-4">$949.900</p>
+                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center py-2 rounded-xl text-[9px] uppercase">Lo quiero</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <p class="text-[9px] font-black text-blue-500 uppercase mb-1">Honor</p>
+                    <h4 class="text-xs font-black mb-2">Magic 8 Lite 5G</h4>
+                    <p class="text-blue-600 font-black text-xl mb-4">$1.384.900</p>
+                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center py-2 rounded-xl text-[9px] uppercase">Lo quiero</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <p class="text-[9px] font-black text-green-600 uppercase mb-1">Infinix</p>
+                    <h4 class="text-xs font-black mb-2">Note Edge 5G</h4>
+                    <p class="text-blue-600 font-black text-xl mb-4">$1.139.900</p>
+                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center py-2 rounded-xl text-[9px] uppercase">Lo quiero</a>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <p class="text-[9px] font-black text-orange-600 uppercase mb-1">Xiaomi</p>
+                    <h4 class="text-xs font-black mb-2">Poco F8 Pro 512GB</h4>
+                    <p class="text-blue-600 font-black text-xl mb-4">$3.139.900</p>
+                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center py-2 rounded-xl text-[9px] uppercase">Lo quiero</a>
+                </div>
+            </div>
         </div>
-        <div class="card" style="border-color:var(--blue); background:#F0F5FF;">
-            <img src="https://i.ibb.co/XxJ69MDb/flip6.png" class="card-img" alt="Z Flip 6">
-            <h3 style="font-size:14px; text-transform:uppercase; color:var(--blue);">Z Flip 6 512GB</h3>
-            <div class="card-price">$2.949.900</div>
-            <a href="https://wa.me/573003228199" class="card-btn">WhatsApp</a>
+    </section>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center uppercase">
+            <div id="playstation" class="bg-blue-900 text-white p-10 rounded-[40px] shadow-2xl">
+                <i class="fab fa-playstation text-5xl mb-6"></i>
+                <h3 class="font-black text-2xl mb-6 italic">Gaming</h3>
+                <p class="flex justify-between border-b border-blue-800 py-3 text-sm"><span>PS5 Digital 1TB</span><b>$2.239.900</b></p>
+                <p class="flex justify-between py-3 text-sm"><span>PS5 Disco 1TB</span><b>$2.549.900</b></p>
+            </div>
+            <div class="bg-gray-900 text-white p-10 rounded-[40px] shadow-2xl">
+                <i class="fas fa-tv text-5xl mb-6 text-blue-500"></i>
+                <h3 class="font-black text-2xl mb-6 italic">Televisores</h3>
+                <p class="flex justify-between border-b border-gray-800 py-3 text-sm"><span>IFFALCON 75" 4K</span><b>$2.749.900</b></p>
+                <p class="flex justify-between py-3 text-sm"><span>IFFALCON 55" 4K</span><b>$1.449.900</b></p>
+            </div>
+            <div id="servicios" class="bg-gray-50 text-black p-10 rounded-[40px] border border-gray-200 shadow-xl">
+                <i class="fas fa-truck text-5xl mb-6 text-blue-600"></i>
+                <h3 class="font-black text-2xl mb-6 italic text-blue-600">Servicios</h3>
+                <p class="text-xs mb-2">Domicilio Gratis Medellín</p>
+                <p class="text-xs mb-2">Plan Retoma Equipos</p>
+                <p class="text-xs">Traspaso de Datos</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://i.ibb.co/YBYJZQxR/samsunga.png" class="card-img" alt="Serie A">
-            <h3 style="font-size:14px; text-transform:uppercase;">Serie A57 5G</h3>
-            <div class="card-price">$2.599.900</div>
-            <a href="https://wa.me/573003228199" class="card-btn" style="background:var(--black);">WhatsApp</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="android">
-    <div class="section-header">
-        <h2 class="section-title" style="font-size:35px;">Multimarca Android</h2>
-    </div>
-    <div class="android-grid">
-        <div class="card" style="padding:20px; border-radius:15px;">
-            <p style="color:#E1001A; font-weight:900; font-size:10px;">MOTOROLA</p>
-            <h3 style="font-size:13px; margin:10px 0;">Moto Edge 50 Fusion</h3>
-            <div style="font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--blue); margin-bottom:15px;">$949.900</div>
-            <a href="https://wa.me/573003228199" class="card-btn" style="background:var(--green); font-size:10px; padding:8px;">Lo quiero</a>
+    <footer class="bg-black text-white py-20 text-center border-t border-gray-900">
+        <p class="text-4xl font-black text-blue-600 mb-10 italic tracking-tighter uppercase">Nexo Digital Medellín</p>
+        <div class="flex justify-center space-x-12 mb-12 text-4xl">
+            <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fab fa-facebook"></i></a>
         </div>
-        <div class="card" style="padding:20px; border-radius:15px;">
-            <p style="color:#00A859; font-weight:900; font-size:10px;">INFINIX</p>
-            <h3 style="font-size:13px; margin:10px 0;">Note Edge 5G</h3>
-            <div style="font-family:var(--font-display); font-size:22px; font-weight:900; color:var(--blue); margin-bottom:15px;">$1.139.900</div>
-            <a href="https://wa.me/573003228199" class="card-btn" style="background:var(--green); font-size:10px; padding:8px;">Lo quiero</a>
-        </div>
-    </div>
-</section>
-
-<section id="hogar" style="background:var(--black); padding:100px 0;">
-    <div class="hogar-grid">
-        <div class="hogar-card blue">
-            <i class="fab fa-playstation" style="font-size:40px; margin-bottom:20px;"></i>
-            <h3 class="hogar-card-title">Consolas PS5</h3>
-            <p style="display:flex; justify-content:space-between; margin-bottom:10px;">PS5 Digital 1TB <b>$2.239.900</b></p>
-            <p style="display:flex; justify-content:space-between;">PS5 Disco 1TB <b>$2.549.900</b></p>
-        </div>
-        <div class="hogar-card dark">
-            <i class="fas fa-tv" style="color:var(--blue); font-size:40px; margin-bottom:20px;"></i>
-            <h3 class="hogar-card-title">Televisores</h3>
-            <p style="display:flex; justify-content:space-between; margin-bottom:10px;">IFFALCON 75" 4K <b>$2.749.900</b></p>
-            <p style="display:flex; justify-content:space-between;">IFFALCON 55" 4K <b>$1.449.900</b></p>
-        </div>
-    </div>
-</section>
-
-<footer style="background:var(--gray-900); padding:80px 24px; text-align:center; color:white;">
-    <h2 style="font-family:var(--font-display); font-size:30px; font-style:italic; color:var(--blue); margin-bottom:10px;">NEXO DIGITAL</h2>
-    <p style="color:rgba(255,255,255,0.4); font-size:12px; margin-bottom:30px;">Medellín · Tecnología al Límite</p>
-    <div style="display:flex; gap:20px; justify-content:center;">
-        <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank" style="color:white; font-size:24px;"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank" style="color:white; font-size:24px;"><i class="fab fa-facebook"></i></a>
-    </div>
-    <p style="margin-top:40px; font-size:10px; color:rgba(255,255,255,0.2);">© 2026 Alexis Tuberquia · CEO Nexo Digital Medellín</p>
-</footer>
-
+        <p class="text-gray-600 text-[10px] font-black uppercase tracking-widest pt-10 border-t border-gray-900 mx-auto max-w-xs">© 2026 Alexis Tuberquia - CEO Nexo Digital Medellín</p>
+    </footer>
 </body>
 </html>
