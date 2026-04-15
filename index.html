@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEXO Digital Medellín | Catálogo Oficial</title>
 
-    <!-- Tailwind + Google Fonts -->
+    <!-- Tailwind + Montserrat (estilo más limpio y profesional) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,6 +35,7 @@
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 87, 255, 0.2);
         }
+
         .btn-primary {
             @apply bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold tracking-wide uppercase text-sm hover:bg-blue-700 transition-colors;
         }
@@ -51,15 +52,32 @@
             @apply text-sm font-bold mb-2 tracking-wider;
         }
 
-        /* whatsapp float button */
+        /* WhatsApp flotante (verde, grande, al lado derecho) */
         .whatsapp-fab {
-            @apply fixed bottom-6 right-6 z-[100] bg-green-500 text-white p-4 rounded-full shadow-xl hover:scale-105 transition-transform;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-normal">
 
-    <!-- WhatsApp fab -->
+    <!-- WhatsApp flotante (verde, bien visible) -->
     <a href="https://wa.me/573003228199" class="whatsapp-fab">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
@@ -67,11 +85,14 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 glass border-b-4 border-blue-600">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-            <span class="text-xl font-bold text-blue-600 uppercase tracking-tight">NEXO <span class="font-light text-gray-700">DIGITAL</span></span>
+            <span class="text-xl font-bold text-blue-600 uppercase tracking-tight">
+                NEXO <span class="font-light text-gray-700">DIGITAL</span>
+            </span>
             <div class="hidden lg:flex space-x-8 text-sm uppercase tracking-tight">
                 <a href="#apple" class="hover:text-blue-600 transition-colors">iPhone</a>
                 <a href="#samsung" class="hover:text-blue-600 transition-colors">Samsung</a>
                 <a href="#android" class="hover:text-blue-600 transition-colors">Android</a>
+                <a href="#accesorios" class="hover:text-blue-600 transition-colors">Accesorios</a>
                 <a href="#servicios" class="hover:text-blue-600 transition-colors">Servicios</a>
             </div>
             <a href="https://wa.me/573003228199" class="btn-primary text-sm">
@@ -262,9 +283,13 @@
         </div>
     </section>
 
-    <!-- Gaming / TV / Servicios -->
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 uppercase">
-            <div id="playstation" class="bg-blue-900 text-white p-10 rounded-3xl shadow-xl">
-                <i class="fab fa-playstation text-5xl mb-6"></i>
-                <h3 class="font-bold text-2xl mb-6 italic">
+    <!-- Accesorios -->
+    <section id="accesorios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 border-l-8 border-blue-600 pl-6 uppercase italic">
+                Accesorios
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+                    <img
+                        src="https://i.ibb.co/...
