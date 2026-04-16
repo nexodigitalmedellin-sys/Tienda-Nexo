@@ -21,85 +21,32 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
-
 .logo{
-  font-size:22px;
   font-weight:900;
+  font-size:22px;
   color:#1A6BFF;
-}
-
-.search{
-  flex:1;
-  margin:0 20px;
-}
-
-.search input{
-  width:100%;
-  padding:10px 15px;
-  border-radius:25px;
-  border:1px solid #ddd;
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(135deg,#EAF1FF,#F7FAFF);
-  padding:40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  text-align:center;
+  padding:40px 20px;
 }
-
-.hero-text{
-  max-width:400px;
-}
-
 .hero h1{
-  font-size:40px;
+  font-size:38px;
   font-weight:900;
 }
+.hero span{ color:#1A6BFF; }
 
-.hero span{
-  color:#1A6BFF;
+/* FILTRO */
+.filters{
+  text-align:center;
+  margin-bottom:20px;
 }
-
-.hero button{
-  background:#1A6BFF;
-  color:white;
-  border:none;
-  padding:10px 18px;
-  border-radius:25px;
-  font-weight:800;
-}
-
-/* CATEGORÍAS */
-.tabs{
-  display:flex;
-  gap:10px;
-  padding:20px;
-  flex-wrap:wrap;
-}
-
-.tab{
-  padding:8px 15px;
-  border-radius:20px;
-  background:white;
-  border:1px solid #ddd;
-  cursor:pointer;
-  font-weight:700;
-}
-
-/* SECCIÓN */
-.section{
-  padding:20px;
-}
-
-.section-title{
-  font-size:20px;
-  font-weight:900;
-  margin-bottom:10px;
+select{
+  padding:10px;
+  border-radius:10px;
 }
 
 /* GRID */
@@ -107,74 +54,40 @@ nav{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
   gap:15px;
+  padding:20px;
 }
 
 /* CARD */
 .card{
   background:white;
   border-radius:16px;
-  padding:12px;
-  border:1px solid #e5eaf2;
+  padding:15px;
   display:flex;
   flex-direction:column;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  border:1px solid #eee;
 }
 
 .card img{
-  height:120px;
+  height:130px;
   object-fit:contain;
 }
 
-.name{
-  font-weight:700;
-  font-size:13px;
-}
-
+.name{ font-weight:700; }
 .price{
+  font-size:20px;
   font-weight:900;
-  font-size:18px;
   color:#0A58FF;
 }
 
-.btns{
-  display:flex;
-  gap:5px;
-  margin-top:auto;
-}
-
 .btn{
-  flex:1;
-  padding:8px;
-  border-radius:10px;
-  text-align:center;
-  font-size:11px;
-  font-weight:800;
-  text-decoration:none;
-}
-
-.buy{
+  margin-top:auto;
   background:#1A6BFF;
   color:white;
-}
-
-.compare{
-  border:1px solid #ccc;
-}
-
-/* BADGE */
-.badge{
-  font-size:10px;
-  background:#ff3b3b;
-  color:white;
-  padding:3px 6px;
-  border-radius:20px;
-  width:fit-content;
-  margin-bottom:5px;
+  text-align:center;
+  padding:10px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:800;
 }
 </style>
 </head>
@@ -182,97 +95,73 @@ nav{
 <body>
 
 <nav>
-<div class="logo">NEXO DIGITAL</div>
-
-<div class="search">
-<input type="text" placeholder="Buscar producto...">
-</div>
-
-<div>🛒</div>
+<div class="logo">NEXO Digital</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-<div class="hero-text">
-<h1>Tecnología <span>al límite</span></h1>
-<p>Equipos premium con entrega inmediata</p>
-<button>Ver ofertas</button>
-</div>
-
-<img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" width="220">
+<h1>Celulares que <span>sí valen la pena</span></h1>
 </section>
 
-<!-- TABS -->
-<div class="tabs">
-<div class="tab">VER TODOS</div>
-<div class="tab">APPLE</div>
-<div class="tab">SAMSUNG</div>
-<div class="tab">XIAOMI</div>
-<div class="tab">ACCESORIOS</div>
+<div class="filters">
+<select id="filtro">
+<option value="">Todas</option>
+<option value="apple">Apple</option>
+<option value="samsung">Samsung</option>
+<option value="xiaomi">Xiaomi</option>
+</select>
 </div>
 
-<!-- APPLE -->
-<div class="section">
-<div class="section-title">🍎 Apple Premium</div>
+<div class="grid" id="catalogo"></div>
 
-<div class="grid">
+<script>
 
-<div class="card">
-<div class="badge">🔥</div>
-<img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png">
-<div class="name">iPhone 17 Pro Max</div>
-<div class="price">$5.300.000</div>
+/* 🔥 AQUÍ EDITAS TODO (TU “EXCEL”) */
+const productos = [
 
-<div class="btns">
-<a href="#" class="btn buy">Comprar</a>
-<a href="#" class="btn compare">Comparar</a>
-</div>
-</div>
+{nombre:"iPhone 17 Pro Max 256GB", precio:5300000, marca:"apple", img:"https://i.ibb.co/Pss5GmJn/iphone17promax.png"},
+{nombre:"iPhone 16 Pro 128GB", precio:4200000, marca:"apple", img:"https://i.ibb.co/0jqHpnp/iphone16pro.png"},
 
-<div class="card">
-<img src="https://i.ibb.co/0jqHpnp/iphone16pro.png">
-<div class="name">iPhone 16 Pro</div>
-<div class="price">$4.200.000</div>
+{nombre:"Samsung S26 Ultra", precio:5039900, marca:"samsung", img:"https://i.ibb.co/2kR0YkQ/samsung-s26.png"},
+{nombre:"Samsung A55", precio:1399000, marca:"samsung", img:"https://i.ibb.co/F4Q1Y5M/samsung-a55.png"},
 
-<div class="btns">
-<a href="#" class="btn buy">Comprar</a>
-<a href="#" class="btn compare">Comparar</a>
-</div>
-</div>
+{nombre:"Xiaomi Redmi Note 13", precio:899000, marca:"xiaomi", img:"https://i.ibb.co/0qzFqZc/xiaomi-redmi.png"},
+{nombre:"Motorola G84", precio:1099000, marca:"xiaomi", img:"https://i.ibb.co/y4P3YJz/motorola-g84.png"}
 
-</div>
-</div>
+];
 
-<!-- SAMSUNG -->
-<div class="section">
-<div class="section-title">📱 Samsung Galaxy</div>
 
-<div class="grid">
+/* 🔧 GENERADOR AUTOMÁTICO */
+const contenedor = document.getElementById("catalogo");
 
-<div class="card">
-<img src="https://i.ibb.co/2kR0YkQ/samsung-s26.png">
-<div class="name">Samsung S26 Ultra</div>
-<div class="price">$5.039.900</div>
+function render(filtro=""){
+  contenedor.innerHTML = "";
 
-<div class="btns">
-<a href="#" class="btn buy">Comprar</a>
-<a href="#" class="btn compare">Comparar</a>
-</div>
-</div>
+  productos
+  .filter(p => !filtro || p.marca === filtro)
+  .forEach(p => {
 
-<div class="card">
-<img src="https://i.ibb.co/F4Q1Y5M/samsung-a55.png">
-<div class="name">Samsung A55</div>
-<div class="price">$1.399.000</div>
+    contenedor.innerHTML += `
+      <div class="card">
+        <img src="${p.img}" onerror="this.src='https://via.placeholder.com/200'">
+        <div class="name">${p.nombre}</div>
+        <div class="price">$${p.precio.toLocaleString()}</div>
+        <a href="https://wa.me/573003228199?text=Quiero ${p.nombre}" class="btn">
+        Comprar
+        </a>
+      </div>
+    `;
+  });
+}
 
-<div class="btns">
-<a href="#" class="btn buy">Comprar</a>
-<a href="#" class="btn compare">Comparar</a>
-</div>
-</div>
+/* FILTRO */
+document.getElementById("filtro").addEventListener("change", e=>{
+  render(e.target.value);
+});
 
-</div>
-</div>
+/* INICIAL */
+render();
+
+</script>
 
 </body>
 </html>
