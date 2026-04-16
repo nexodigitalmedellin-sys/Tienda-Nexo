@@ -5,54 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEXO Digital Medellín | Catálogo Oficial</title>
 
-    <!-- Tailwind + Montserrat (estilo más limpio y profesional) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        html {
-            scroll-behavior: smooth;
-            font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+        html { scroll-behavior: smooth; font-family: 'Montserrat', sans-serif; }
+        
+        /* Animación para la imagen principal */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        .img-hero { animation: float 5s ease-in-out infinite; }
+
+        .filter-btn {
+            @apply px-5 py-2 rounded-full border border-gray-200 text-sm font-semibold transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600;
         }
+        .filter-btn.active {
+            @apply bg-blue-600 text-white border-blue-600;
+        }
+
         .product-card {
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 87, 255, 0.2);
+            @apply bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
         }
 
-        .btn-primary {
-            @apply bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold tracking-wide uppercase text-sm hover:bg-blue-700 transition-colors;
-        }
-        .btn-secondary {
-            @apply bg-green-500 text-white px-6 py-2 rounded-lg font-semibold uppercase text-xs hover:bg-green-600 transition-colors;
-        }
-        .btn-small {
-            @apply py-2 px-4 rounded-lg font-semibold uppercase text-xs;
-        }
-        .section-title {
-            @apply text-4xl md:text-5xl font-bold mb-12 border-l-8 border-blue-500 pl-6 uppercase italic;
-        }
-        .card-title {
-            @apply text-sm font-bold mb-2 tracking-wider;
-        }
-
-        /* WhatsApp flotante (verde, grande, al lado derecho) */
+        /* Badge de WhatsApp */
         .whatsapp-fab {
             position: fixed;
             bottom: 2rem;
@@ -60,236 +38,132 @@
             z-index: 100;
             background: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .whatsapp-fab:hover {
-            transform: scale(1.1);
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        .online-dot {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 12px;
+            height: 12px;
+            background: #ff4b4b;
+            border: 2px solid white;
+            border-radius: 50%;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-normal">
+<body class="bg-[#f8f9fa] text-gray-900">
 
-    <!-- WhatsApp flotante (verde, bien visible) -->
-    <a href="https://wa.me/573003228199" class="whatsapp-fab">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <a href="https://wa.me/573003228199" class="whatsapp-fab transition-transform hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="online-dot"></span>
     </a>
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 glass border-b-4 border-blue-600">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-            <span class="text-xl font-bold text-blue-600 uppercase tracking-tight">
-                NEXO <span class="font-light text-gray-700">DIGITAL</span>
-            </span>
-            <div class="hidden lg:flex space-x-8 text-sm uppercase tracking-tight">
-                <a href="#apple" class="hover:text-blue-600 transition-colors">iPhone</a>
-                <a href="#samsung" class="hover:text-blue-600 transition-colors">Samsung</a>
-                <a href="#android" class="hover:text-blue-600 transition-colors">Android</a>
-                <a href="#accesorios" class="hover:text-blue-600 transition-colors">Accesorios</a>
-                <a href="#servicios" class="hover:text-blue-600 transition-colors">Servicios</a>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold text-blue-600 tracking-tighter">NEXO <span class="text-gray-400 font-light">DIGITAL</span></span>
+                <span class="bg-blue-50 text-blue-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-widest">Verificado</span>
             </div>
-            <a href="https://wa.me/573003228199" class="btn-primary text-sm">
-                WhatsApp
-            </a>
+            <div class="hidden md:flex gap-8 font-medium text-sm text-gray-500 uppercase">
+                <a href="#catalogo" class="hover:text-blue-600">Catálogo</a>
+                <a href="https://wa.me/573003228199" class="hover:text-blue-600 font-bold text-blue-600">Soporte</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="bg-white py-24 border-b">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="bg-red-600 text-white text-xs font-medium px-4 py-1 rounded-full uppercase mb-4 inline-block">
-                    Oferta del Día 🔥
-                </span>
-                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6 italic tracking-tight">
-                    Tecnología al <span class="text-blue-600">Límite.</span>
-                </h1>
-                <p class="text-gray-600 text-lg mb-8">
-                    Envíos GRATIS Medellín · Plan Retoma · Garantía Real.
-                </p>
-                <a
-                    href="https://wa.me/573003228199?text=Hola%20Nexo,%20quiero%20la%20oferta"
-                    class="btn-secondary text-sm"
-                >
-                    Pedir Ahora
-                </a>
+    <header class="py-12 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <span class="text-blue-600 font-bold text-sm tracking-widest uppercase mb-4 block">Oferta de hoy</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">Tecnología <br><span class="text-blue-600">al Límite.</span></h1>
+                <p class="text-gray-500 text-lg mb-10 max-w-md mx-auto lg:mx-0">Dispositivos nuevos y garantizados con envíos rápidos en todo Medellín.</p>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#catalogo" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">Ver Catálogo</a>
+                </div>
             </div>
             <div class="relative flex justify-center">
-                <img
-                    src="https://i.ibb.co/zHxrCRL0/iphone17.png"
-                    class="w-11/12 rounded-2xl shadow-2xl border-8 border-white z-10 rotate-3"
-                    alt="iPhone 17"
-                />
-                <img
-                    src="https://i.ibb.co/C3B386f4/Logo-Nexo.png"
-                    class="absolute -bottom-10 -left-10 w-1/2 opacity-10 -z-0"
-                    alt="Logo Nexo"
-                />
+                <img src="https://i.ibb.co/4ZjvRpP0/dise-o-nexo.png" alt="Nexo Digital Hero" class="w-full max-w-lg img-hero drop-shadow-2xl" loading="eager">
             </div>
         </div>
     </header>
 
-    <!-- Apple section -->
-    <section id="apple" class="py-24 bg-black text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl lg:text-5xl font-bold text-center text-blue-400 uppercase mb-16 tracking-wide">
-                Apple Premium
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="product-card bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-center">
-                    <img
-                        src="https://i.ibb.co/Pss5GmJn/iphone17promax.png"
-                        class="h-60 mx-auto mb-6 object-contain"
-                        alt="iPhone 17 Pro Max"
-                    />
-                    <h3 class="card-title text-sm uppercase">iPhone 17 Pro Max 256GB</h3>
-                    <p class="text-blue-400 font-bold text-2xl mb-5">$5.499.900</p>
-                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white btn-small rounded-full">
-                        Comprar
-                    </a>
+    <section id="catalogo" class="py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 mb-12 justify-center md:justify-start">
+                <button class="filter-btn active" onclick="filterCategory('all')">Ver todos</button>
+                <button class="filter-btn" onclick="filterCategory('apple')">Apple</button>
+                <button class="filter-btn" onclick="filterCategory('samsung')">Samsung</button>
+                <button class="filter-btn" onclick="filterCategory('android')">Motorola / Xiaomi</button>
+                <button class="filter-btn" onclick="filterCategory('accesorios')">Accesorios</button>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="product-card" data-category="apple">
+                    <img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" alt="iPhone 17 Pro Max" class="h-56 mx-auto mb-6 object-contain" loading="lazy">
+                    <h3 class="font-bold text-gray-800 mb-1">iPhone 17 Pro Max 256GB</h3>
+                    <p class="text-blue-600 font-extrabold text-xl mb-6">$5.499.900</p>
+                    <a href="https://wa.me/573003228199?text=Hola!%20Me%20interesa%20el%20iPhone%2017%20Pro%20Max" class="block w-full text-center border-2 border-gray-100 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all">Comprar</a>
                 </div>
-                <div class="product-card bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-center">
-                    <img
-                        src="https://i.ibb.co/QFgmy9hb/macbook.png"
-                        class="h-60 mx-auto mb-6 object-contain"
-                        alt="MacBook Pro"
-                    />
-                    <h3 class="card-title text-sm uppercase">MacBook Pro M5 14"</h3>
-                    <p class="text-blue-400 font-bold text-2xl mb-5">$9.800.000</p>
-                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white btn-small rounded-full">
-                        Comprar
-                    </a>
+
+                <div class="product-card" data-category="samsung">
+                    <img src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="Samsung S26 Ultra" class="h-56 mx-auto mb-6 object-contain" loading="lazy">
+                    <h3 class="font-bold text-gray-800 mb-1">S26 Ultra 512GB</h3>
+                    <p class="text-blue-600 font-extrabold text-xl mb-6">$5.139.900</p>
+                    <a href="https://wa.me/573003228199?text=Hola!%20Me%20interesa%20el%20Samsung%20S26%20Ultra" class="block w-full text-center border-2 border-gray-100 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all">Comprar</a>
                 </div>
-                <div class="product-card bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-center">
-                    <img
-                        src="https://i.ibb.co/v6xF53x1/iphone16.png"
-                        class="h-60 mx-auto mb-6 object-contain"
-                        alt="iPhone 16 Pro"
-                    />
-                    <h3 class="card-title text-sm uppercase">iPhone 16 Pro 256GB</h3>
-                    <p class="text-blue-400 font-bold text-2xl mb-5">$3.139.900</p>
-                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white btn-small rounded-full">
-                        Comprar
-                    </a>
+
+                <div class="product-card" data-category="android">
+                    <img src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Xiaomi Poco" class="h-56 mx-auto mb-6 object-contain" loading="lazy">
+                    <h3 class="font-bold text-gray-800 mb-1">Poco F8 Pro 512GB</h3>
+                    <p class="text-blue-600 font-extrabold text-xl mb-6">$3.139.900</p>
+                    <a href="https://wa.me/573003228199?text=Hola!%20Me%20interesa%20el%20Poco%20F8%20Pro" class="block w-full text-center border-2 border-gray-100 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all">Comprar</a>
                 </div>
-                <div class="product-card bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-center">
-                    <img
-                        src="https://i.ibb.co/HfvwmGhX/ipads.png"
-                        class="h-60 mx-auto mb-6 object-contain"
-                        alt="iPad Air"
-                    />
-                    <h3 class="card-title text-sm uppercase">iPad Air M4 256GB</h3>
-                    <p class="text-blue-400 font-bold text-2xl mb-5">$3.050.000</p>
-                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white btn-small rounded-full">
-                        Comprar
-                    </a>
+
+                <div class="product-card" data-category="apple">
+                    <img src="https://i.ibb.co/QFgmy9hb/macbook.png" alt="MacBook Pro" class="h-56 mx-auto mb-6 object-contain" loading="lazy">
+                    <h3 class="font-bold text-gray-800 mb-1">MacBook Pro M5 14"</h3>
+                    <p class="text-blue-600 font-extrabold text-xl mb-6">$9.800.000</p>
+                    <a href="https://wa.me/573003228199?text=Hola!%20Me%20interesa%20la%20MacBook%20Pro" class="block w-full text-center border-2 border-gray-100 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all">Comprar</a>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Samsung section -->
-    <section id="samsung" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="section-title">Samsung Galaxy</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-                <div class="product-card p-6 rounded-2xl bg-gray-50 border">
-                    <img
-                        src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png"
-                        class="h-40 mx-auto mb-4 object-contain"
-                        alt="S26 ULTRA"
-                    />
-                    <h3 class="text-xs font-bold uppercase tracking-tight">S26 ULTRA 512GB</h3>
-                    <p class="text-blue-600 font-bold text-2xl mb-4">$5.139.900</p>
-                    <a href="https://wa.me/573003228199" class="bg-black text-white btn-small rounded-full">
-                        WhatsApp
-                    </a>
-                </div>
-                <div class="product-card p-6 rounded-2xl bg-blue-50 border-2 border-blue-600">
-                    <img
-                        src="https://i.ibb.co/XxJ69MDb/flip6.png"
-                        class="h-40 mx-auto mb-4 object-contain"
-                        alt="Z Flip 6"
-                    />
-                    <h3 class="text-xs font-bold uppercase text-blue-600 tracking-tight">Z FLIP 6 512GB</h3>
-                    <p class="text-blue-600 font-bold text-2xl mb-4">$2.949.900</p>
-                    <a href="https://wa.me/573003228199" class="bg-blue-600 text-white btn-small rounded-full">
-                        WhatsApp
-                    </a>
-                </div>
-                <div class="product-card p-6 rounded-2xl bg-gray-50 border">
-                    <img
-                        src="https://i.ibb.co/YBYJZQxR/samsunga.png"
-                        class="h-40 mx-auto mb-4 object-contain"
-                        alt="A57 5G"
-                    />
-                    <h3 class="text-xs font-bold uppercase tracking-tight">A57 5G 512GB</h3>
-                    <p class="text-blue-600 font-bold text-2xl mb-4">$2.599.900</p>
-                    <a href="https://wa.me/573003228199" class="bg-black text-white btn-small rounded-full">
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer class="bg-white py-12 border-t border-gray-100 text-center">
+        <p class="text-gray-400 text-sm">© 2026 NEXO DIGITAL MEDELLÍN. Todos los derechos reservados.</p>
+    </footer>
 
-    <!-- Android section -->
-    <section id="android" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 border-l-8 border-green-500 pl-6 uppercase italic">
-                Multimarca Android
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                    <p class="text-xs font-medium text-blue-700 uppercase mb-1">Motorola</p>
-                    <h4 class="text-sm font-bold mb-2">Edge 50 Fusion</h4>
-                    <p class="text-blue-600 font-bold text-xl mb-4">$949.900</p>
-                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center btn-small rounded-full">
-                        Lo quiero
-                    </a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                    <p class="text-xs font-medium text-blue-500 uppercase mb-1">Honor</p>
-                    <h4 class="text-sm font-bold mb-2">Magic 8 Lite 5G</h4>
-                    <p class="text-blue-600 font-bold text-xl mb-4">$1.384.900</p>
-                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center btn-small rounded-full">
-                        Lo quiero
-                    </a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                    <p class="text-xs font-medium text-green-600 uppercase mb-1">Infinix</p>
-                    <h4 class="text-sm font-bold mb-2">Note Edge 5G</h4>
-                    <p class="text-blue-600 font-bold text-xl mb-4">$1.139.900</p>
-                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center btn-small rounded-full">
-                        Lo quiero
-                    </a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
-                    <p class="text-xs font-medium text-orange-600 uppercase mb-1">Xiaomi</p>
-                    <h4 class="text-sm font-bold mb-2">Poco F8 Pro 512GB</h4>
-                    <p class="text-blue-600 font-bold text-xl mb-4">$3.139.900</p>
-                    <a href="https://wa.me/573003228199" class="block bg-green-500 text-white text-center btn-small rounded-full">
-                        Lo quiero
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function filterCategory(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
 
-    <!-- Accesorios -->
-    <section id="accesorios" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 border-l-8 border-blue-600 pl-6 uppercase italic">
-                Accesorios
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-                    <img
-                        src="https://i.ibb.co/...
+            // Actualizar botones
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText.includes('todos'))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filtrar productos
+            products.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
