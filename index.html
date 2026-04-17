@@ -3,167 +3,744 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXO Digital</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
+<title>NEXO Digital Medellín | Catálogo Oficial 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body{margin:0;font-family:'Barlow',sans-serif;background:#f4f7fb}
-
-/* NAV */
-nav{
-display:flex;align-items:center;gap:20px;
-padding:15px 30px;background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05)
+:root {
+  --blue: #1557FF;
+  --blue-dark: #003FCC;
+  --blue-light: #E8F0FF;
+  --black: #0A0A0F;
+  --gray-900: #111118;
+  --gray-800: #1C1C28;
+  --gray-700: #2C2C3A;
+  --gray-200: #E2E2EA;
+  --gray-100: #F4F4F8;
+  --gray-50: #FAFAFC;
+  --white: #FFFFFF;
+  --red: #FF2D20;
+  --green: #00C853;
+  --orange: #FF6D00;
+  --purple: #7C3AED;
+  --font-d: 'Barlow Condensed', sans-serif;
+  --font-b: 'Barlow', sans-serif;
+  --r: 16px;
+  --r-lg: 24px;
 }
-.logo{font-weight:900;font-size:22px;color:#1A6BFF}
-.search{flex:1}
-.search input{
-width:100%;padding:10px 15px;border-radius:30px;
-border:1px solid #ddd
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-b); background: var(--gray-50); color: var(--black); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--gray-200);
+  height: 62px;
 }
-
-/* HERO */
-.hero{
-display:flex;justify-content:space-between;align-items:center;
-padding:40px;background:linear-gradient(135deg,#EAF1FF,#FFF)
+.nav-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; gap: 12px; }
+.nav-logo { font-family: var(--font-d); font-size: 26px; font-weight: 900; font-style: italic; color: var(--blue); letter-spacing: -1px; text-transform: uppercase; text-decoration: none; flex-shrink: 0; }
+.nav-verified { background: var(--blue); color: white; font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 4px; vertical-align: middle; letter-spacing: 0.5px; }
+.nav-search {
+  flex: 1; max-width: 480px;
+  display: flex; align-items: center;
+  background: var(--gray-100);
+  border: 2px solid var(--gray-200);
+  border-radius: 50px; padding: 0 18px; height: 42px; gap: 10px;
+  transition: border-color .2s, box-shadow .2s;
 }
-.hero h1{font-size:40px;font-weight:900}
-.hero span{color:#1A6BFF}
+.nav-search:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(21,87,255,.1); background: white; }
+.nav-search i { color: #999; font-size: 14px; }
+.nav-search input { border: none; background: transparent; outline: none; font-family: var(--font-b); font-size: 14px; color: var(--black); width: 100%; font-weight: 500; }
+.nav-search input::placeholder { color: #aaa; }
+.nav-links { display: flex; gap: 2px; margin-left: auto; }
+.nav-links a { font-family: var(--font-d); font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--gray-800); text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: all .15s; }
+.nav-links a:hover { background: var(--blue-light); color: var(--blue); }
+.nav-wa { background: var(--blue); color: white; padding: 10px 20px; border-radius: 50px; font-family: var(--font-d); font-size: 14px; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 7px; letter-spacing: 0.3px; flex-shrink: 0; transition: background .2s; }
+.nav-wa:hover { background: var(--blue-dark); }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+@media (max-width: 640px) { .nav-search { max-width: none; } .nav-logo { font-size: 22px; } }
 
-/* SERVICIOS */
-.services{
-display:flex;justify-content:center;gap:30px;
-padding:20px;font-weight:600
+/* ── HERO ── */
+.hero {
+  background: var(--black);
+  min-height: 88vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; overflow: hidden; position: relative;
 }
-
-/* SECCIONES */
-.section{padding:25px}
-.title{font-size:22px;font-weight:900;margin-bottom:15px}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:15px
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 70% at 72% 50%, rgba(21,87,255,.22) 0%, transparent 65%);
+  pointer-events: none;
 }
-
-/* CARD */
-.card{
-background:white;padding:15px;border-radius:16px;
-border:1px solid #e5eaf2;
-display:flex;flex-direction:column;
-transition:.25s
+.hero-left { padding: 80px 56px 80px 72px; position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--red); color: white;
+  font-family: var(--font-d); font-size: 13px; font-weight: 800; letter-spacing: 1px;
+  padding: 6px 16px; border-radius: 4px; text-transform: uppercase;
+  margin-bottom: 24px;
 }
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.1)
+.hero-title {
+  font-family: var(--font-d); font-style: italic; font-weight: 900;
+  font-size: clamp(72px, 8vw, 118px); line-height: .9;
+  text-transform: uppercase; color: white; letter-spacing: -2px; margin-bottom: 20px;
 }
-.card img{height:130px;object-fit:contain}
+.hero-title span { color: var(--blue); display: block; }
+.hero-sub { color: rgba(255,255,255,.55); font-size: 16px; font-weight: 500; margin-bottom: 36px; line-height: 1.6; max-width: 420px; }
+.hero-sub strong { color: rgba(255,255,255,.88); }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+.hero-pill { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.75); font-size: 12px; font-weight: 700; padding: 7px 14px; border-radius: 50px; font-family: var(--font-d); letter-spacing: .3px; text-transform: uppercase; }
+.hero-pill i { color: var(--blue); }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-hero { background: var(--blue); color: white; padding: 16px 36px; border-radius: 50px; font-family: var(--font-d); font-size: 16px; font-weight: 900; text-decoration: none; letter-spacing: .5px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: all .2s; }
+.btn-hero:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.btn-hero-ghost { border: 2px solid rgba(255,255,255,.2); color: white; padding: 16px 36px; border-radius: 50px; font-family: var(--font-d); font-size: 16px; font-weight: 900; text-decoration: none; letter-spacing: .5px; text-transform: uppercase; transition: all .2s; }
+.btn-hero-ghost:hover { border-color: white; background: rgba(255,255,255,.06); }
+.hero-right { display: flex; align-items: center; justify-content: center; padding: 60px 40px; position: relative; z-index: 2; }
+.hero-img { max-height: 420px; object-fit: contain; filter: drop-shadow(0 32px 64px rgba(21,87,255,.4)); animation: heroFloat 4s ease-in-out infinite; }
+@keyframes heroFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; min-height: auto; } .hero-left { padding: 52px 24px 40px; } .hero-right { display: none; } }
 
-.name{font-weight:700;font-size:13px}
-.price{font-weight:900;font-size:18px;color:#0A58FF}
+/* ── PAYMENTS BAR ── */
+.pay-bar { background: white; border-bottom: 2px solid var(--gray-200); padding: 12px 24px; }
+.pay-bar-wrap { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.pay-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--gray-800); letter-spacing: .3px; text-transform: uppercase; padding: 4px 12px; }
+.pay-item i { color: var(--blue); font-size: 14px; }
+.pay-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--gray-200); }
 
-.btn{
-margin-top:auto;background:#1A6BFF;color:white;
-padding:10px;border-radius:30px;text-align:center;
-text-decoration:none;font-weight:800
+/* ── FILTER BAR ── */
+.filter-bar { background: white; border-bottom: 2px solid var(--gray-200); padding: 0 24px; position: sticky; top: 62px; z-index: 200; }
+.filter-wrap { max-width: 1400px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 10px 0; }
+.filter-wrap::-webkit-scrollbar { display: none; }
+.fbtn {
+  flex-shrink: 0; background: transparent; border: 2px solid var(--gray-200);
+  color: var(--gray-800); padding: 8px 20px; border-radius: 50px;
+  font-family: var(--font-d); font-size: 14px; font-weight: 800; cursor: pointer;
+  transition: all .15s; letter-spacing: .3px; text-transform: uppercase; white-space: nowrap;
+}
+.fbtn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+.fbtn.on { background: var(--blue); border-color: var(--blue); color: white; }
+
+/* ── MAIN ── */
+.main { max-width: 1400px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* ── SECTION HEADER ── */
+.sh { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.sh + .sh, .sec-divider + .sh { margin-top: 48px; }
+.sh-left { display: flex; align-items: center; gap: 10px; }
+.sh-bar { width: 6px; height: 36px; border-radius: 3px; flex-shrink: 0; }
+.sh-bar.blue { background: var(--blue); }
+.sh-bar.red { background: var(--red); }
+.sh-bar.green { background: var(--green); }
+.sh-bar.orange { background: var(--orange); }
+.sh-bar.purple { background: var(--purple); }
+.sh-bar.black { background: var(--black); }
+.sh-title { font-family: var(--font-d); font-size: 28px; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.5px; color: var(--black); }
+.sh-count { background: var(--blue-light); color: var(--blue); font-family: var(--font-d); font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 50px; letter-spacing: .5px; text-transform: uppercase; }
+.sh-link { font-family: var(--font-d); font-size: 14px; font-weight: 800; color: var(--blue); text-decoration: none; text-transform: uppercase; letter-spacing: .5px; display: flex; align-items: center; gap: 4px; }
+.sh-link:hover { text-decoration: underline; }
+
+/* ── PRODUCT GRID ── */
+.pg { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
+.pg.sm { grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); }
+
+/* ── CARD ── */
+.card {
+  background: white; border: 2px solid var(--gray-200); border-radius: var(--r-lg);
+  padding: 20px 16px 16px; display: flex; flex-direction: column;
+  transition: all .22s; position: relative; overflow: hidden;
+}
+.card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(21,87,255,.12); }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: transparent; border-radius: var(--r-lg) var(--r-lg) 0 0; transition: background .22s; }
+.card:hover::before { background: var(--blue); }
+
+/* color accent tops per brand */
+.card.apple::before { background: linear-gradient(90deg, #555, #888); }
+.card.samsung::before { background: linear-gradient(90deg, #1428A0, #1557FF); }
+.card.motorola::before { background: linear-gradient(90deg, #CC0000, #FF2D20); }
+.card.honor::before { background: linear-gradient(90deg, #CF0A2C, #FF2D20); }
+.card.infinix::before { background: linear-gradient(90deg, #00A859, #00C853); }
+.card.xiaomi::before { background: linear-gradient(90deg, #FF6900, #FF8C00); }
+.card.tecno::before { background: linear-gradient(90deg, #1557FF, #6B9AFF); }
+.card.oppo::before { background: linear-gradient(90deg, #1F8B4C, #00C853); }
+.card.zte::before { background: linear-gradient(90deg, #333, #666); }
+.card.gaming::before { background: linear-gradient(90deg, #7C3AED, #A855F7); }
+
+.card-badge { position: absolute; top: 14px; right: 12px; font-family: var(--font-d); font-size: 10px; font-weight: 900; padding: 3px 9px; border-radius: 4px; letter-spacing: .5px; text-transform: uppercase; }
+.card-badge.new { background: #D4F7E4; color: #065F32; }
+.card-badge.hot { background: #FFE5E5; color: var(--red); }
+.card-badge.fold { background: #EDE9FE; color: var(--purple); }
+
+.card-img-wrap { height: 140px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.card-img { max-height: 130px; max-width: 100%; object-fit: contain; transition: transform .3s; }
+.card:hover .card-img { transform: scale(1.06); }
+
+.card-img-wrap.sm { height: 110px; }
+.card-img-wrap.sm .card-img { max-height: 100px; }
+
+.card-brand { font-family: var(--font-d); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 3px; }
+.card-name { font-family: var(--font-d); font-size: 15px; font-weight: 800; font-style: italic; color: var(--black); line-height: 1.2; margin-bottom: 3px; }
+.card-spec { font-size: 11px; color: #999; margin-bottom: 10px; font-weight: 500; }
+.card-from { font-size: 10px; font-weight: 700; color: #aaa; font-family: var(--font-d); text-transform: uppercase; letter-spacing: .5px; }
+.card-price { font-family: var(--font-d); font-size: 26px; font-weight: 900; color: var(--blue); letter-spacing: -1px; line-height: 1; margin-bottom: 12px; margin-top: auto; }
+.card-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: var(--blue); color: white; padding: 11px 16px; border-radius: 50px;
+  font-family: var(--font-d); font-size: 13px; font-weight: 900; text-decoration: none;
+  letter-spacing: .3px; text-transform: uppercase; transition: all .18s; width: 100%;
+}
+.card-btn:hover { background: var(--blue-dark); }
+.card-btn.sm { padding: 9px 12px; font-size: 12px; }
+
+/* ── COLORED BRAND BLOCKS (Samsung / Apple premium style) ── */
+.block-section { border-radius: var(--r-lg); overflow: hidden; margin-bottom: 0; }
+.block-section .block-header {
+  padding: 36px 40px 28px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.block-header-title { font-family: var(--font-d); font-size: 40px; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; line-height: .95; }
+.block-header-sub { font-size: 14px; font-weight: 600; opacity: .7; margin-top: 4px; }
+.block-header-link { font-family: var(--font-d); font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px; text-decoration: none; display: flex; align-items: center; gap: 4px; padding: 10px 22px; border-radius: 50px; border: 2px solid currentColor; transition: all .2s; flex-shrink: 0; }
+.block-header-link:hover { opacity: .8; }
+.block-body { padding: 0 24px 36px; }
+
+/* Apple block */
+.block-apple { background: var(--gray-900); }
+.block-apple .block-header { color: white; border-bottom: 1px solid rgba(255,255,255,.08); }
+.block-apple .block-header-link { color: #6B9AFF; }
+.block-apple .card { background: var(--gray-800); border-color: var(--gray-700); }
+.block-apple .card::before { background: linear-gradient(90deg, #555, #888) !important; }
+.block-apple .card:hover { border-color: #6B9AFF; }
+.block-apple .card-brand { color: rgba(255,255,255,.35); }
+.block-apple .card-name { color: white; }
+.block-apple .card-spec { color: rgba(255,255,255,.35); }
+.block-apple .card-price { color: #6B9AFF; }
+.block-apple .card-btn { background: #1557FF; }
+.block-apple .card-btn:hover { background: #003FCC; }
+
+/* Samsung block */
+.block-samsung { background: #EBF0FF; }
+.block-samsung .block-header { color: var(--gray-900); border-bottom: 2px solid #C8D5FF; }
+.block-samsung .block-header-link { color: var(--blue); }
+
+/* ── SECTION DIVIDER ── */
+.sec-divider { border: none; border-top: 2px solid var(--gray-200); margin: 40px 0 0; }
+
+/* ── SEARCH RESULTS ── */
+#search-res { display: none; }
+#search-res.on { display: block; }
+
+/* ── SERVICES ── */
+.services-section { background: var(--black); border-radius: var(--r-lg); padding: 48px 40px; margin-top: 48px; }
+.services-title { font-family: var(--font-d); font-size: 36px; font-weight: 900; font-style: italic; color: white; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 28px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.srv { background: var(--gray-800); border-radius: var(--r); padding: 28px 24px; border: 2px solid var(--gray-700); transition: all .2s; }
+.srv:hover { border-color: var(--blue); }
+.srv-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 24px; }
+.srv-icon.b { background: rgba(21,87,255,.2); color: #6B9AFF; }
+.srv-icon.g { background: rgba(0,200,83,.2); color: var(--green); }
+.srv-icon.p { background: rgba(124,58,237,.2); color: #A78BFA; }
+.srv-name { font-family: var(--font-d); font-size: 18px; font-weight: 900; font-style: italic; color: white; text-transform: uppercase; margin-bottom: 6px; }
+.srv-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.5; font-weight: 500; }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .services-section { padding: 32px 20px; } }
+
+/* ── GAMING BLOCKS ── */
+.gaming-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.g-block { border-radius: var(--r-lg); padding: 32px 28px; color: white; }
+.g-block.ps { background: linear-gradient(135deg, #00439C 0%, #0057CC 100%); }
+.g-block.lap { background: linear-gradient(135deg, #1C1C28 0%, #2C2C3A 100%); border: 2px solid var(--gray-700); }
+.g-block.tv { background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 100%); }
+.g-block-title { font-family: var(--font-d); font-size: 26px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 4px; }
+.g-block-icon { font-size: 32px; margin-bottom: 14px; }
+.g-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 13px; font-weight: 600; text-decoration: none; color: inherit; transition: opacity .15s; }
+.g-item:hover { opacity: .7; }
+.g-item:last-of-type { border-bottom: none; }
+.g-price { font-family: var(--font-d); font-size: 20px; font-weight: 900; }
+.g-block-btn { display: inline-block; margin-top: 16px; background: rgba(255,255,255,.15); color: white; padding: 8px 20px; border-radius: 50px; font-family: var(--font-d); font-size: 13px; font-weight: 900; text-decoration: none; text-transform: uppercase; letter-spacing: .3px; transition: background .2s; }
+.g-block-btn:hover { background: rgba(255,255,255,.25); }
+@media (max-width: 860px) { .gaming-grid { grid-template-columns: 1fr; } }
+
+/* ── FOOTER ── */
+footer { background: var(--gray-900); padding: 64px 24px 32px; margin-top: 80px; }
+.ft-wrap { max-width: 1400px; margin: 0 auto; }
+.ft-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); flex-wrap: wrap; gap: 28px; }
+.ft-brand { font-family: var(--font-d); font-size: 34px; font-weight: 900; font-style: italic; color: var(--blue); text-transform: uppercase; letter-spacing: -1px; }
+.ft-tag { color: rgba(255,255,255,.35); font-size: 13px; margin-top: 4px; font-weight: 500; }
+.ft-social { display: flex; gap: 10px; }
+.ft-social a { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); font-size: 18px; text-decoration: none; transition: all .2s; }
+.ft-social a:hover { background: var(--blue); color: white; }
+.ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.ft-copy { color: rgba(255,255,255,.2); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+
+/* ── WA FLOAT ── */
+.wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 400; background: #25D366; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 28px rgba(37,211,102,.45); text-decoration: none; transition: all .3s; }
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 40px rgba(37,211,102,.55); }
+
+@media (max-width: 480px) {
+  .pg, .pg.sm { grid-template-columns: repeat(2, 1fr); }
+  .card-img-wrap { height: 110px; } .card-img-wrap.sm { height: 90px; }
+  .card-price { font-size: 20px; }
+  .card-name { font-size: 13px; }
 }
 </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">NEXO Digital</div>
+<a href="https://wa.me/573003228199" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<div class="search">
-<input type="text" id="buscador" placeholder="Buscar producto...">
-</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">NEXO Digital <span class="nav-verified">✓ Verificado</span></a>
+    <div class="nav-search">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Buscar producto, marca, modelo...">
+    </div>
+    <div class="nav-links">
+      <a href="#apple">Apple</a>
+      <a href="#samsung">Samsung</a>
+      <a href="#android">Android</a>
+      <a href="#gaming">Gaming/TV</a>
+      <a href="#servicios">Servicios</a>
+    </div>
+    <a href="https://wa.me/573003228199" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
 </nav>
 
-<section class="hero">
-<div>
-<h1>Celulares que <span>sí valen la pena</span></h1>
-<p>Entrega inmediata · Equipos verificados</p>
-</div>
-<img src="https://i.ibb.co/Pss5GmJn/iphone17promax.png" width="220">
-</section>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🔥 Oferta del Día</div>
+    <h1 class="hero-title">Tecnología<span>al Límite.</span></h1>
+    <p class="hero-sub">Envíos <strong>GRATIS</strong> en Medellín. Plan Retoma, garantía real y las mejores marcas del mercado.</p>
+    <div class="hero-pills">
+      <span class="hero-pill"><i class="fas fa-truck"></i> Domicilio Gratis</span>
+      <span class="hero-pill"><i class="fas fa-sync-alt"></i> Plan Retoma</span>
+      <span class="hero-pill"><i class="fas fa-credit-card"></i> ADDI · Sistecredito</span>
+      <span class="hero-pill"><i class="fas fa-shield-alt"></i> Garantía Real</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://wa.me/573003228199?text=Hola!%20Quiero%20ver%20productos%20disponibles" class="btn-hero" target="_blank"><i class="fab fa-whatsapp"></i> Pedir Ahora</a>
+      <a href="#servicios" class="btn-hero-ghost">Servicios</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://i.ibb.co/z1rYSWw/motorola-edge-50-fusion.jpg" alt="Smartphone Nexo Digital" class="hero-img"
+      onerror="this.src='https://i.ibb.co/Pss5GmJn/iphone17promax.png'">
+  </div>
+</header>
 
-<div class="services">
-<div>🔄 Plan retoma</div>
-<div>🚚 Domicilio gratis</div>
-<div>💾 Backups</div>
+<!-- PAYMENT BAR -->
+<div class="pay-bar">
+  <div class="pay-bar-wrap">
+    <div class="pay-item"><i class="fas fa-credit-card"></i> Todas las tarjetas</div>
+    <div class="pay-sep"></div>
+    <div class="pay-item"><i class="fas fa-university"></i> Bancolombia</div>
+    <div class="pay-sep"></div>
+    <div class="pay-item"><i class="fas fa-mobile-alt"></i> Nequi</div>
+    <div class="pay-sep"></div>
+    <div class="pay-item"><i class="fas fa-handshake"></i> ADDI</div>
+    <div class="pay-sep"></div>
+    <div class="pay-item"><i class="fas fa-store"></i> Sistecredito</div>
+    <div class="pay-sep"></div>
+    <div class="pay-item"><i class="fas fa-truck"></i> Envío gratis Medellín</div>
+  </div>
 </div>
 
-<div class="section">
-<div class="title">📱 Catálogo completo</div>
-<div class="grid" id="catalogo"></div>
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-wrap">
+    <button class="fbtn on" onclick="doFilter('all',this)">Ver Todos</button>
+    <button class="fbtn" onclick="doFilter('apple',this)">🍎 Apple</button>
+    <button class="fbtn" onclick="doFilter('samsung',this)">📱 Samsung</button>
+    <button class="fbtn" onclick="doFilter('motorola',this)">🔴 Motorola</button>
+    <button class="fbtn" onclick="doFilter('honor',this)">Honor</button>
+    <button class="fbtn" onclick="doFilter('infinix',this)">Infinix</button>
+    <button class="fbtn" onclick="doFilter('xiaomi',this)">🟠 Xiaomi</button>
+    <button class="fbtn" onclick="doFilter('tecno',this)">Tecno</button>
+    <button class="fbtn" onclick="doFilter('oppo',this)">Oppo</button>
+    <button class="fbtn" onclick="doFilter('zte',this)">ZTE</button>
+    <button class="fbtn" onclick="doFilter('gaming',this)">🎮 Gaming/TV</button>
+  </div>
 </div>
+
+<div class="main">
+
+  <!-- SEARCH RESULTS -->
+  <div id="search-res">
+    <div class="sh"><div class="sh-left"><div class="sh-bar blue"></div><span class="sh-title">Resultados</span></div></div>
+    <div class="pg" id="search-grid"></div>
+    <hr class="sec-divider">
+  </div>
+
+  <!-- ═══════════ APPLE BLOCK ═══════════ -->
+  <div id="apple" class="block-section block-apple brand-sec" data-brand="apple">
+    <div class="block-header">
+      <div>
+        <div class="block-header-title">Apple Premium</div>
+        <div class="block-header-sub" style="color:rgba(255,255,255,.5);">iPhone · iPad · MacBook</div>
+      </div>
+      <a href="https://wa.me/573003228199?text=Quiero%20ver%20todos%20los%20productos%20Apple" class="block-header-link" target="_blank">Ver Todo <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <!-- iPhone 16 -->
+    <div style="padding:0 24px 12px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar" style="background:#555;"></div><span class="sh-title" style="color:white;font-size:20px;">iPhone 16</span><span class="sh-count" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);">Nuevo 2024</span></div></div>
+      <div class="pg">
+        <div class="card apple" data-q="iphone 16 pro 256gb esim">
+          <span class="card-badge new">NUEVO</span>
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/67dRXm4t/iphone16pro.png" alt="iPhone 16 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 16 Pro 256GB</div><div class="card-spec">E-Sim · ⚫️ Negro</div>
+          <div class="card-price">$3.200.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2016%20Pro%20256GB%20E-Sim%20Negro%20%243.200.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 16 pro 128gb esim">
+          <span class="card-badge new">NUEVO</span>
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/67dRXm4t/iphone16pro.png" alt="iPhone 16 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 16 Pro 128GB</div><div class="card-spec">E-Sim · 🩶🟠</div>
+          <div class="card-price">$3.050.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2016%20Pro%20128GB%20E-Sim%20%243.050.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 16 128gb esim azul">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/gbqyp251/iphone16.png" alt="iPhone 16" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 16 128GB</div><div class="card-spec">E-Sim · 🔵 Azul</div>
+          <div class="card-price">$2.550.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2016%20128GB%20E-Sim%20Azul%20%242.550.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 15 -->
+    <div style="padding:20px 24px 12px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar" style="background:#555;"></div><span class="sh-title" style="color:white;font-size:20px;">iPhone 15</span></div></div>
+      <div class="pg">
+        <div class="card apple" data-q="iphone 15 pro max 512gb esim blanco">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15 Pro Max" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 Pro Max 512GB</div><div class="card-spec">E-Sim · ⚪️</div>
+          <div class="card-price">$3.100.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20Pro%20Max%20512GB%20E-Sim%20%243.100.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 15 pro max 256gb esim">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15 Pro Max" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 Pro Max 256GB</div><div class="card-spec">E-Sim desde $2.900.000 · Sim física $3.000.000</div>
+          <div class="card-from">Desde</div><div class="card-price">$2.900.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20Pro%20Max%20256GB%2C%20precio%20desde%20%242.900.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 15 pro 256gb esim negro">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 Pro 256GB</div><div class="card-spec">E-Sim · ⚫️</div>
+          <div class="card-price">$2.550.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20Pro%20256GB%20E-Sim%20%242.550.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 15 pro 128gb esim azul">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 Pro 128GB</div><div class="card-spec">E-Sim · 🔵</div>
+          <div class="card-price">$2.350.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20Pro%20128GB%20E-Sim%20%242.350.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 15 plus 128gb esim negro">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15 Plus" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 Plus 128GB</div><div class="card-spec">E-Sim · ⚫️</div>
+          <div class="card-price">$2.100.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20Plus%20128GB%20E-Sim%20%242.100.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+        <div class="card apple" data-q="iphone 15 128gb esim celeste rosa">
+          <div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/5gPpn0wQ/iphone15.png" alt="iPhone 15" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div>
+          <div class="card-brand">Apple</div><div class="card-name">iPhone 15 128GB</div><div class="card-spec">E-Sim · 🩵🩷</div>
+          <div class="card-price">$2.000.000</div>
+          <a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2015%20128GB%20E-Sim%20%242.000.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone 14 -->
+    <div style="padding:20px 24px 12px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar" style="background:#555;"></div><span class="sh-title" style="color:white;font-size:20px;">iPhone 14</span></div></div>
+      <div class="pg">
+        <div class="card apple" data-q="iphone 14 pro max 256gb esim morado"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/chzGWTBy/iphone14.png" alt="iPhone 14 Pro Max" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 14 Pro Max 256GB</div><div class="card-spec">E-Sim · 🟣</div><div class="card-price">$2.550.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2014%20Pro%20Max%20256GB%20E-Sim%20%242.550.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 14 pro max 128gb esim blanco bateria"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/chzGWTBy/iphone14.png" alt="iPhone 14 Pro Max" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 14 Pro Max 128GB</div><div class="card-spec">E-Sim · ⚪️ 💯🔋</div><div class="card-price">$2.350.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2014%20Pro%20Max%20128GB%20E-Sim%20%242.350.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 14 pro 256gb esim morado"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/chzGWTBy/iphone14.png" alt="iPhone 14 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 14 Pro 256GB</div><div class="card-spec">E-Sim · 🟣</div><div class="card-price">$2.250.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2014%20Pro%20256GB%20E-Sim%20%242.250.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 14 128gb esim morado"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/chzGWTBy/iphone14.png" alt="iPhone 14" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 14 128GB</div><div class="card-spec">E-Sim · 🟣</div><div class="card-price">$1.600.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2014%20128GB%20E-Sim%20%241.600.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+      </div>
+    </div>
+
+    <!-- iPhone 13 -->
+    <div style="padding:20px 24px 12px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar" style="background:#555;"></div><span class="sh-title" style="color:white;font-size:20px;">iPhone 13</span></div></div>
+      <div class="pg">
+        <div class="card apple" data-q="iphone 13 pro max 128gb azul negro bateria"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/YgZwjDn/iphone13.png" alt="iPhone 13 Pro Max" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 13 Pro Max 128GB</div><div class="card-spec">🔵 $1.950.000 · ⚫️💯🔋 $2.000.000</div><div class="card-from">Desde</div><div class="card-price">$1.950.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2013%20Pro%20Max%20128GB%2C%20precio%20desde%20%241.950.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 13 pro 256gb azul"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/YgZwjDn/iphone13.png" alt="iPhone 13 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 13 Pro 256GB</div><div class="card-spec">🔵 Azul</div><div class="card-price">$1.920.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2013%20Pro%20256GB%20%241.920.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 13 pro 128gb azul"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/YgZwjDn/iphone13.png" alt="iPhone 13 Pro" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 13 Pro 128GB</div><div class="card-spec">🔵 Azul</div><div class="card-price">$1.730.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2013%20Pro%20128GB%20%241.730.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="iphone 13 128gb azul negro garantia apple"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/YgZwjDn/iphone13.png" alt="iPhone 13" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Apple</div><div class="card-name">iPhone 13 128GB</div><div class="card-spec">🔵 $1.480.000 · ⚫️ garantía Apple $1.550.000</div><div class="card-from">Desde</div><div class="card-price">$1.480.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPhone%2013%20128GB%2C%20precio%20desde%20%241.480.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+      </div>
+    </div>
+
+    <!-- iPads -->
+    <div style="padding:20px 24px 36px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar" style="background:#555;"></div><span class="sh-title" style="color:white;font-size:20px;">iPads</span></div></div>
+      <div class="pg">
+        <div class="card apple" data-q="ipad 11 a16 128gb colombia"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad</div><div class="card-name">iPad 11ª A16 128GB</div><div class="card-spec">🔵🩷 Colombia 🇨🇴</div><div class="card-price">$1.550.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%2011th%20A16%20128GB%20%241.550.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="ipad 11 a16 256gb colombia"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad</div><div class="card-name">iPad 11ª A16 256GB</div><div class="card-spec">⚪️🔵 Colombia 🇨🇴</div><div class="card-price">$2.000.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%2011th%20A16%20256GB%20%242.000.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="ipad air m3 128gb 11 colombia"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad Air M3" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad Air</div><div class="card-name">iPad Air M3 128GB 11"</div><div class="card-spec">🔵🟣 Colombia 🇨🇴</div><div class="card-price">$2.350.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%20Air%20M3%20128GB%2011%22%20%242.350.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="ipad air m3 256gb 11 colombia"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad Air M3" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad Air</div><div class="card-name">iPad Air M3 256GB 11"</div><div class="card-spec">🟣🩶 Colombia 🇨🇴</div><div class="card-from">Desde</div><div class="card-price">$2.800.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%20Air%20M3%20256GB%2011%22%2C%20desde%20%242.800.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="ipad air m4 128gb 11 colombia"><span class="card-badge new">M4</span><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad Air M4" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad Air</div><div class="card-name">iPad Air M4 128GB 11"</div><div class="card-spec">🌟🔵🟣 Colombia 🇨🇴</div><div class="card-price">$2.750.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%20Air%20M4%20128GB%2011%22%20%242.750.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card apple" data-q="ipad air m4 256gb 11 colombia"><span class="card-badge new">M4</span><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/HfvwmGhX/ipads.png" alt="iPad Air M4" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>🖥️</div>'"></div><div class="card-brand">Apple iPad Air</div><div class="card-name">iPad Air M4 256GB 11"</div><div class="card-spec">🔵🌟 Colombia 🇨🇴</div><div class="card-price">$3.050.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20iPad%20Air%20M4%20256GB%2011%22%20%243.050.000" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+      </div>
+    </div>
+  </div><!-- end block-apple -->
+
+  <!-- ═══════════ SAMSUNG BLOCK ═══════════ -->
+  <div id="samsung" class="block-section block-samsung brand-sec" data-brand="samsung" style="margin-top:20px;">
+    <div class="block-header">
+      <div>
+        <div class="block-header-title">Samsung Galaxy</div>
+        <div class="block-header-sub">Serie S · Serie A · Z Flip</div>
+      </div>
+      <a href="https://wa.me/573003228199?text=Quiero%20ver%20todos%20los%20Samsung" class="block-header-link" target="_blank">Ver Todo <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <!-- Serie S -->
+    <div style="padding:0 24px 12px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar blue"></div><span class="sh-title" style="font-size:20px;">Serie S & Premium</span></div></div>
+      <div class="pg">
+        <div class="card samsung" data-q="samsung s26 ultra 512gb 5g"><span class="card-badge hot">TOP</span><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="S26 Ultra" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy S26 Ultra 5G 512GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$5.039.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20S26%20Ultra%205G%20512GB%20%245.039.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card samsung" data-q="samsung s25 ultra 512gb 5g"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="S25 Ultra" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy S25 Ultra 5G 512GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$4.139.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20S25%20Ultra%205G%20512GB%20%244.139.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card samsung" data-q="samsung s26 5g 512gb"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="S26" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy S26 5G 512GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$3.739.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20S26%205G%20512GB%20%243.739.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card samsung" data-q="samsung s26 5g 256gb"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="S26" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy S26 5G 256GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$3.299.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20S26%205G%20256GB%20%243.299.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card samsung" data-q="samsung s25 256gb"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/bMMMZLy6/premiumsamsung.png" alt="S25" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy S25 256GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$2.879.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20S25%20256GB%20%242.879.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+        <div class="card samsung" data-q="samsung z flip 6 512gb plegable"><span class="card-badge fold">PLEGABLE</span><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/XxJ69MDb/flip6.png" alt="Z Flip 6" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">Galaxy Z Flip 6 512GB</div><div class="card-spec">12GB RAM</div><div class="card-price">$2.949.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20Z%20Flip%206%20512GB%20%242.949.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+      </div>
+    </div>
+
+    <!-- Serie A -->
+    <div style="padding:20px 24px 36px;">
+      <div class="sh" style="margin-top:0;margin-bottom:14px;"><div class="sh-left"><div class="sh-bar blue"></div><span class="sh-title" style="font-size:20px;">Serie A</span><span class="sh-count">14 modelos</span></div></div>
+      <div class="pg sm">
+        <div class="card samsung" data-q="samsung a57 5g 512gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A57" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A57 5G 512GB</div><div class="card-spec">12GB RAM</div><div class="card-price" style="font-size:20px;">$2.599.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A57%205G%20512GB%20%242.599.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a57 5g 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A57" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A57 5G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$2.169.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A57%205G%20256GB%20%242.169.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a37 5g 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A37" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A37 5G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$1.839.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A37%205G%20256GB%20%241.839.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a36 5g 256gb 2sim"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A36" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A36 5G 256GB</div><div class="card-spec">8GB RAM · 2SIM</div><div class="card-price" style="font-size:20px;">$1.149.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A36%205G%20256GB%20%241.149.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a17 5g 256gb 2sim"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A17" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A17 5G 2SIM 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$789.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A17%205G%202SIM%20256GB%20%24789.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a17 5g 1sim 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A17" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A17 5G 1SIM 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$764.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A17%205G%201SIM%20256GB%20%24764.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a17 4g 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A17" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A17 4G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$759.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A17%204G%20256GB%20%24759.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a17 4g 2sim 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A17" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A17 4G 2SIM 128GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$579.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A17%204G%202SIM%20128GB%20%24579.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a17 4g 1sim 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A17" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A17 4G 1SIM 128GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$564.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A17%204G%201SIM%20128GB%20%24564.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a16 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A16" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A16 4G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$699.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A16%204G%20256GB%20%24699.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a16 128gb 4ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A16" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A16 4G 128GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$529.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A16%204G%20128GB%20%24529.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a07 128gb 6ram 2sim"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A07" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A07 128GB 6RAM 2SIM</div><div class="card-spec">6GB RAM · 2SIM</div><div class="card-price" style="font-size:20px;">$469.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A07%20128GB%206RAM%202SIM%20%24469.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a07 128gb 4ram 1sim"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A07" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A07 128GB 4RAM 1SIM</div><div class="card-spec">4GB RAM · 1SIM</div><div class="card-price" style="font-size:20px;">$444.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A07%20128GB%204RAM%201SIM%20%24444.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="card samsung" data-q="samsung a07 64gb 4ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YBYJZQxR/samsunga.png" alt="Samsung A07" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Samsung</div><div class="card-name">A07 64GB 4GB RAM</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$399.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Samsung%20A07%2064GB%20%24399.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      </div>
+    </div>
+  </div><!-- end block-samsung -->
+
+  <!-- ═══════════ ANDROID MULTIMARCA ═══════════ -->
+  <div id="android" style="margin-top:20px;">
+
+    <!-- MOTOROLA -->
+    <div class="sh brand-sec" data-brand="motorola"><div class="sh-left"><div class="sh-bar red"></div><span class="sh-title">Motorola</span></div><a href="https://wa.me/573003228199?text=Quiero%20info%20Motorola" class="sh-link" target="_blank">Consultar <i class="fas fa-chevron-right"></i></a></div>
+    <div class="pg brand-sec" data-brand="motorola">
+      <div class="card motorola" data-q="motorola moto edge 50 fusion 512gb 5g lavanda"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/z1rYSWw/motorola-edge-50-fusion.jpg" alt="Moto Edge 50 Fusion" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Motorola</div><div class="card-name">Moto Edge 50 Fusion</div><div class="card-spec">512GB · 12GB RAM · 5G · 6.67"</div><div class="card-price">$949.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Moto%20Edge%2050%20Fusion%20512GB%205G%20%24949.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+      <div class="card motorola" data-q="motorola moto g86 5g 256gb"><div class="card-img-wrap"><img class="card-img" src="https://i.ibb.co/z1rYSWw/motorola-edge-50-fusion.jpg" alt="Moto G86" onerror="this.parentElement.innerHTML='<div style=font-size:52px;>📱</div>'"></div><div class="card-brand">Motorola</div><div class="card-name">Moto G86 5G 256GB</div><div class="card-spec">8GB RAM · 5G</div><div class="card-price">$964.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Moto%20G86%205G%20256GB%20%24964.900" class="card-btn" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- HONOR -->
+    <div class="sh brand-sec" data-brand="honor" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar red"></div><span class="sh-title">Honor</span><span class="sh-count">8 modelos</span></div><a href="https://wa.me/573003228199?text=Quiero%20info%20Honor" class="sh-link" target="_blank">Consultar <i class="fas fa-chevron-right"></i></a></div>
+    <div class="pg sm brand-sec" data-brand="honor">
+      <div class="card honor" data-q="honor magic 8 lite 5g"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">Magic 8 Lite 5G</div><div class="card-price" style="font-size:20px;">$1.384.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20Magic%208%20Lite%205G%20%241.384.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor x8d 512gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">X8D 512GB</div><div class="card-price" style="font-size:20px;">$1.169.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20X8D%20512GB%20%241.169.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor magic 7 lite 5g"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">Magic 7 Lite 5G</div><div class="card-price" style="font-size:20px;">$1.049.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20Magic%207%20Lite%205G%20%241.049.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor 400 smart 12ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">400 Smart 12GB RAM</div><div class="card-price" style="font-size:20px;">$994.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20400%20Smart%2012RAM%20%24994.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor 400 smart 6ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">400 Smart 6GB RAM</div><div class="card-price" style="font-size:20px;">$849.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20400%20Smart%206RAM%20%24849.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor x6c 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">X6C 256GB</div><div class="card-price" style="font-size:20px;">$619.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20X6C%20256GB%20%24619.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor x6c 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">X6C 128GB</div><div class="card-price" style="font-size:20px;">$539.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20X6C%20128GB%20%24539.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card honor" data-q="honor x5c plus 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/fGz5qQ4j/honor.png" alt="Honor" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Honor</div><div class="card-name">X5C Plus 256GB</div><div class="card-price" style="font-size:20px;">$574.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Honor%20X5C%20Plus%20256GB%20%24574.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- INFINIX -->
+    <div class="sh brand-sec" data-brand="infinix" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar green"></div><span class="sh-title">Infinix</span><span class="sh-count">5 modelos</span></div></div>
+    <div class="pg sm brand-sec" data-brand="infinix">
+      <div class="card infinix" data-q="infinix note edge 5g 256gb 8ram colombia"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/3m2rYnWb/infinix.png" alt="Infinix" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Infinix</div><div class="card-name">Note Edge 5G 256GB</div><div class="card-spec">8GB RAM 🇨🇴</div><div class="card-price" style="font-size:20px;">$1.049.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Infinix%20Note%20Edge%205G%20256GB%20%241.049.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card infinix" data-q="infinix note 50s 5g 256gb 8ram colombia"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/3m2rYnWb/infinix.png" alt="Infinix" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Infinix</div><div class="card-name">Note 50S 5G 256GB</div><div class="card-spec">8GB RAM 🇨🇴</div><div class="card-price" style="font-size:20px;">$1.024.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Infinix%20Note%2050S%205G%20256GB%20%241.024.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card infinix" data-q="infinix hot 60i 5g 256gb 8ram colombia"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/3m2rYnWb/infinix.png" alt="Infinix" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Infinix</div><div class="card-name">Hot 60i 5G 256GB</div><div class="card-spec">8+8GB RAM 🇨🇴</div><div class="card-price" style="font-size:20px;">$849.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Infinix%20Hot%2060i%205G%20256GB%20%24849.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card infinix" data-q="infinix smart 20 256gb 4ram colombia"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/3m2rYnWb/infinix.png" alt="Infinix" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Infinix</div><div class="card-name">Smart 20 256GB</div><div class="card-spec">4+4GB RAM 🇨🇴</div><div class="card-price" style="font-size:20px;">$664.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Infinix%20Smart%2020%20256GB%20%24664.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card infinix" data-q="infinix smart 20 128gb 4ram colombia"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/3m2rYnWb/infinix.png" alt="Infinix" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Infinix</div><div class="card-name">Smart 20 128GB</div><div class="card-spec">4GB RAM 🇨🇴</div><div class="card-price" style="font-size:20px;">$584.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Infinix%20Smart%2020%20128GB%20%24584.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- XIAOMI -->
+    <div class="sh brand-sec" data-brand="xiaomi" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar orange"></div><span class="sh-title">Xiaomi · Redmi · Poco</span><span class="sh-count">7 modelos</span></div></div>
+    <div class="pg sm brand-sec" data-brand="xiaomi">
+      <div class="card xiaomi" data-q="poco f8 pro 512gb xiaomi"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YTK1wLZd/xiaomi.png" alt="Xiaomi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Poco</div><div class="card-name">F8 Pro 512GB</div><div class="card-price" style="font-size:20px;">$3.139.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Poco%20F8%20Pro%20512GB%20%243.139.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="xiaomi 15t 512gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/YTK1wLZd/xiaomi.png" alt="Xiaomi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Xiaomi</div><div class="card-name">Xiaomi 15T 512GB</div><div class="card-price" style="font-size:20px;">$2.529.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Xiaomi%2015T%20512GB%20%242.529.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="redmi note 15 pro 5g 512gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/bgPj99CM/redmi.png" alt="Redmi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Redmi</div><div class="card-name">Note 15 Pro 5G 512GB</div><div class="card-price" style="font-size:20px;">$1.409.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Redmi%20Note%2015%20Pro%205G%20512GB%20%241.409.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="redmi note 15 4g 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/bgPj99CM/redmi.png" alt="Redmi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Redmi</div><div class="card-name">Note 15 4G 256GB</div><div class="card-price" style="font-size:20px;">$874.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Redmi%20Note%2015%204G%20256GB%20%24874.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="redmi 15c 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/bgPj99CM/redmi.png" alt="Redmi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Redmi</div><div class="card-name">15C 256GB 8RAM</div><div class="card-price" style="font-size:20px;">$664.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Redmi%2015C%20256GB%20%24664.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="redmi a7 pro 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/bgPj99CM/redmi.png" alt="Redmi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Redmi</div><div class="card-name">A7 Pro 128GB</div><div class="card-price" style="font-size:20px;">$534.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Redmi%20A7%20Pro%20128GB%20%24534.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card xiaomi" data-q="redmi a5 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/bgPj99CM/redmi.png" alt="Redmi" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Redmi</div><div class="card-name">A5 128GB</div><div class="card-price" style="font-size:20px;">$505.000</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Redmi%20A5%20128GB%20%24505.000" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- TECNO -->
+    <div class="sh brand-sec" data-brand="tecno" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar blue"></div><span class="sh-title">Tecno</span><span class="sh-count">7 modelos</span></div></div>
+    <div class="pg sm brand-sec" data-brand="tecno">
+      <div class="card tecno" data-q="tecno pova slim 5g 256gb 8ram blanco"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Pova Slim 5G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$1.104.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Pova%20Slim%205G%20%241.104.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno spark 50 5g 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Spark 50 5G 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$1.029.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Spark%2050%205G%20%241.029.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno spark 40 pro 256gb 8ram negro"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Spark 40 Pro 256GB</div><div class="card-spec">8GB RAM · Negro</div><div class="card-price" style="font-size:20px;">$839.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Spark%2040%20Pro%20%24839.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno camon 30s 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Camon 30S 256GB</div><div class="card-spec">8GB RAM</div><div class="card-price" style="font-size:20px;">$829.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Camon%2030S%20%24829.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno pova 6 5g 256gb 8ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Pova 6 5G 256GB</div><div class="card-spec">8+8GB RAM</div><div class="card-price" style="font-size:20px;">$754.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Pova%206%205G%20%24754.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno spark go 3 128gb 4ram"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Spark Go 3 128GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$599.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Spark%20Go%203%20128GB%20%24599.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card tecno" data-q="tecno spark go 2 256gb 4ram verde"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/B2mgYD6K/tecno.png" alt="Tecno" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Tecno</div><div class="card-name">Spark Go 2 256GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$579.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Tecno%20Spark%20Go%202%20256GB%20%24579.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- OPPO -->
+    <div class="sh brand-sec" data-brand="oppo" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar green"></div><span class="sh-title">Oppo</span></div></div>
+    <div class="pg sm brand-sec" data-brand="oppo">
+      <div class="card oppo" data-q="oppo a5 5g 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/Wv8zX1QT/oppo.png" alt="Oppo" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Oppo</div><div class="card-name">A5 5G 256GB</div><div class="card-price" style="font-size:20px;">$1.039.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Oppo%20A5%205G%20256GB%20%241.039.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card oppo" data-q="oppo a5m 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/Wv8zX1QT/oppo.png" alt="Oppo" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Oppo</div><div class="card-name">A5M 256GB</div><div class="card-price" style="font-size:20px;">$949.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Oppo%20A5M%20256GB%20%24949.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card oppo" data-q="oppo a5 256gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/Wv8zX1QT/oppo.png" alt="Oppo" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Oppo</div><div class="card-name">A5 256GB</div><div class="card-price" style="font-size:20px;">$749.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Oppo%20A5%20256GB%20%24749.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card oppo" data-q="oppo a5x 128gb"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/Wv8zX1QT/oppo.png" alt="Oppo" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">Oppo</div><div class="card-name">A5X 128GB</div><div class="card-price" style="font-size:20px;">$569.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20Oppo%20A5X%20128GB%20%24569.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+    <hr class="sec-divider">
+
+    <!-- ZTE -->
+    <div class="sh brand-sec" data-brand="zte" style="margin-top:32px;"><div class="sh-left"><div class="sh-bar black"></div><span class="sh-title">ZTE</span><span class="sh-count">6 modelos</span></div></div>
+    <div class="pg sm brand-sec" data-brand="zte">
+      <div class="card zte" data-q="zte nubia neo gt 5g 256gb 8ram gris"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">Nubia Neo GT 5G 256GB</div><div class="card-spec">8+12GB RAM</div><div class="card-price" style="font-size:20px;">$869.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20Nubia%20Neo%20GT%205G%20%24869.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card zte" data-q="zte v70 max 256gb 4ram gris rosado dorado"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">V70 Max 256GB</div><div class="card-spec">4+10GB RAM</div><div class="card-price" style="font-size:20px;">$434.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20V70%20Max%20256GB%20%24434.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card zte" data-q="zte a56 pro 128gb 4ram dorado gris"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">A56 Pro 128GB</div><div class="card-spec">4GB RAM</div><div class="card-price" style="font-size:20px;">$419.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20A56%20Pro%20128GB%20%24419.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card zte" data-q="zte a76 5g 128gb 4ram negro azul"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">A76 5G 128GB</div><div class="card-spec">4+4GB RAM · 1SIM</div><div class="card-price" style="font-size:20px;">$379.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20A76%205G%20128GB%20%24379.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card zte" data-q="zte a55 128gb 4ram naranja"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">A55 128GB</div><div class="card-spec">4GB RAM · Naranja</div><div class="card-price" style="font-size:20px;">$364.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20A55%20128GB%20%24364.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="card zte" data-q="zte a35e 64gb 2ram gris verde"><div class="card-img-wrap sm"><img class="card-img" src="https://i.ibb.co/jZMt0yRs/zte.png" alt="ZTE" onerror="this.parentElement.innerHTML='<div style=font-size:44px;>📱</div>'"></div><div class="card-brand">ZTE</div><div class="card-name">A35E 64GB</div><div class="card-spec">2GB RAM</div><div class="card-price" style="font-size:20px;">$334.900</div><a href="https://wa.me/573003228199?text=Quiero%20el%20ZTE%20A35E%2064GB%20%24334.900" class="card-btn sm" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    </div>
+
+  </div><!-- end android -->
+
+  <!-- ═══════════ GAMING / TV / LAPTOPS ═══════════ -->
+  <div id="gaming" style="margin-top:48px;">
+    <div class="sh brand-sec" data-brand="gaming"><div class="sh-left"><div class="sh-bar purple"></div><span class="sh-title">Gaming, Laptops & TV</span></div><a href="https://wa.me/573003228199?text=Quiero%20info%20consolas%20y%20TV" class="sh-link" target="_blank">Consultar <i class="fas fa-chevron-right"></i></a></div>
+    <div class="gaming-grid brand-sec" data-brand="gaming">
+      <div class="g-block ps">
+        <div class="g-block-icon"><i class="fab fa-playstation"></i></div>
+        <div class="g-block-title">Consolas</div>
+        <a href="https://wa.me/573003228199?text=Quiero%20la%20PS5%20Digital%201TB%20%242.239.900" class="g-item" target="_blank"><span>PS5 Digital 1TB</span><span class="g-price">$2.239.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20la%20PS5%20Disco%201TB%20%242.549.900" class="g-item" target="_blank"><span>PS5 Disco 1TB</span><span class="g-price">$2.549.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20info%20consolas" class="g-block-btn" target="_blank">Consultar más</a>
+      </div>
+      <div class="g-block lap">
+        <div class="g-block-icon"><i class="fas fa-laptop" style="color:#6B9AFF;"></i></div>
+        <div class="g-block-title">Laptops</div>
+        <a href="https://wa.me/573003228199?text=Quiero%20la%20MacBook%20Pro%20M5%2014%22%20%249.800.000" class="g-item" target="_blank"><span>MacBook Pro M5 14"</span><span class="g-price">$9.800.000</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20el%20Galaxy%20Book4%20i7%20%242.199.900" class="g-item" target="_blank"><span>Galaxy Book4 i7</span><span class="g-price">$2.199.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20el%20HP%2015%20R5%2016GB%20%241.949.900" class="g-item" target="_blank"><span>HP 15 R5 16GB</span><span class="g-price">$1.949.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20info%20laptops" class="g-block-btn" target="_blank">Consultar más</a>
+      </div>
+      <div class="g-block tv">
+        <div class="g-block-icon"><i class="fas fa-tv" style="color:#C4B5FD;"></i></div>
+        <div class="g-block-title">Televisores</div>
+        <a href="https://wa.me/573003228199?text=Quiero%20el%20IFFALCON%2075%22%204K%20%242.749.900" class="g-item" target="_blank"><span>IFFALCON 75" 4K UHD</span><span class="g-price">$2.749.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20el%20IFFALCON%2055%22%204K%20%241.449.900" class="g-item" target="_blank"><span>IFFALCON 55" 4K UHD</span><span class="g-price">$1.449.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20el%20IFFALCON%2043%22%20FHD%20%241.049.900" class="g-item" target="_blank"><span>IFFALCON 43" FHD</span><span class="g-price">$1.049.900</span></a>
+        <a href="https://wa.me/573003228199?text=Quiero%20info%20televisores" class="g-block-btn" target="_blank">Consultar más</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SERVICIOS ═══════════ -->
+  <div id="servicios" class="services-section">
+    <div class="services-title">¿Por qué Nexo Digital?</div>
+    <div class="services-grid">
+      <div class="srv">
+        <div class="srv-icon b"><i class="fas fa-truck"></i></div>
+        <div class="srv-name">Domicilio Gratis</div>
+        <p class="srv-desc">Envíos sin costo en Medellín y toda el Área Metropolitana. Rápido y con seguimiento.</p>
+      </div>
+      <div class="srv">
+        <div class="srv-icon g"><i class="fas fa-sync-alt"></i></div>
+        <div class="srv-name">Plan Retoma</div>
+        <p class="srv-desc">Recibimos tu equipo usado como parte de pago. Cambio justo y sin complicaciones.</p>
+      </div>
+      <div class="srv">
+        <div class="srv-icon p"><i class="fas fa-database"></i></div>
+        <div class="srv-name">Backup & Traspaso</div>
+        <p class="srv-desc">Traspaso de datos profesional. Tu información segura en cada cambio de equipo.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-wrap">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">NEXO Digital</div>
+        <div class="ft-tag">Medellín · Tecnología al Límite · Catálogo 2026</div>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.instagram.com/nexodigmed_oficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/alexis.bermudez.311" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/573003228199" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2026 Alexis Tuberquia · CEO Nexo Digital Medellín</p>
+      <p class="ft-copy">Todos los precios en pesos colombianos (COP)</p>
+    </div>
+  </div>
+</footer>
 
 <script>
+// ── SEARCH ──
+const inp = document.getElementById('searchInput');
+const res = document.getElementById('search-res');
+const grid = document.getElementById('search-grid');
+const allCards = () => document.querySelectorAll('[data-q]');
 
-const productos = [
-
-/* APPLE */
-{nombre:"iPhone 16 Pro 256GB", precio:3200000, img:"https://i.ibb.co/gbqyp251/archivo.png"},
-{nombre:"iPhone 16 128GB", precio:2550000, img:"https://i.ibb.co/67dRXm4t/archivo.png"},
-{nombre:"iPhone 15 Pro Max 512GB", precio:3100000, img:"https://i.ibb.co/5gPpn0wQ/archivo.png"},
-{nombre:"iPhone 14 Pro Max", precio:2550000, img:"https://i.ibb.co/chzGWTBy/archivo.png"},
-{nombre:"iPhone 13 Pro Max", precio:1950000, img:"https://i.ibb.co/YgZwjDn/archivo.png"},
-
-/* SAMSUNG */
-{nombre:"Samsung A07", precio:399900, img:"https://i.ibb.co/YBYJZQxR/archivo.png"},
-{nombre:"Samsung A17 5G", precio:789900, img:"https://i.ibb.co/YBYJZQxR/archivo.png"},
-{nombre:"Samsung S26 Ultra", precio:5039900, img:"https://i.ibb.co/bMMMZLy6/archivo.png"},
-
-/* MOTOROLA */
-{nombre:"Motorola Edge 50 Pro", precio:1800000, img:"https://i.ibb.co/z1rYSWw/archivo.png"},
-
-/* XIAOMI */
-{nombre:"Xiaomi 15T", precio:2529900, img:"https://i.ibb.co/YTK1wLZd/archivo.png"},
-
-/* HONOR */
-{nombre:"Honor Magic 8 Lite", precio:1384900, img:"https://i.ibb.co/fGz5qQ4j/archivo.png"},
-
-/* INFINIX */
-{nombre:"Infinix Note 50S", precio:1024900, img:"https://i.ibb.co/3m2rYnWb/archivo.png"},
-
-/* OPPO */
-{nombre:"Oppo A5 5G", precio:1039900, img:"https://i.ibb.co/Wv8zX1QT/archivo.png"},
-
-/* TECNO */
-{nombre:"Tecno Spark 50 5G", precio:1029900, img:"https://i.ibb.co/B2mgYD6K/archivo.png"},
-
-/* ZTE */
-{nombre:"ZTE Nubia Neo GT", precio:869900, img:"https://i.ibb.co/jZMt0yRs/archivo.png"}
-
-];
-
-const contenedor = document.getElementById("catalogo");
-
-function render(lista){
-contenedor.innerHTML="";
-lista.forEach(p=>{
-contenedor.innerHTML+=`
-<div class="card">
-<img src="${p.img}" onerror="this.src='https://via.placeholder.com/200'">
-<div class="name">${p.nombre}</div>
-<div class="price">$${p.precio.toLocaleString()}</div>
-<a href="https://wa.me/573003228199?text=Quiero ${p.nombre}" class="btn">Comprar</a>
-</div>`;
+inp.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  if(!q){ res.classList.remove('on'); showAll(); return; }
+  const hits = [];
+  allCards().forEach(c => { if((c.getAttribute('data-q')||'').toLowerCase().includes(q) || c.innerText.toLowerCase().includes(q)) hits.push(c.cloneNode(true)); });
+  grid.innerHTML = '';
+  if(hits.length === 0){
+    grid.innerHTML = `<p style="color:#999;font-size:14px;grid-column:1/-1;padding:24px 0;">Sin resultados para "<b>${q}</b>". Escríbenos por <a href="https://wa.me/573003228199?text=Busco%20${encodeURIComponent(q)}" target="_blank" style="color:var(--blue);">WhatsApp</a>.</p>`;
+  } else { hits.forEach(c => grid.appendChild(c)); }
+  res.classList.add('on');
+  hideAll();
 });
+
+function hideAll(){ document.querySelectorAll('.brand-sec, .sec-divider, #android, #gaming').forEach(e=>e.style.display='none'); }
+function showAll(){ document.querySelectorAll('.brand-sec, .sec-divider, #android, #gaming').forEach(e=>e.style.display=''); }
+
+// ── FILTER ──
+function doFilter(brand, btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  inp.value = ''; res.classList.remove('on');
+  if(brand==='all'){ showAll(); return; }
+  hideAll();
+  // Show matching brand-sec elements
+  document.querySelectorAll('.brand-sec[data-brand="'+brand+'"]').forEach(e=>e.style.display='');
+  // Show parent containers
+  if(['motorola','honor','infinix','xiaomi','tecno','oppo','zte'].includes(brand)){
+    document.getElementById('android').style.display='';
+  }
+  if(brand==='gaming') document.getElementById('gaming').style.display='';
+  if(brand==='apple') document.getElementById('apple').style.display='';
+  if(brand==='samsung') document.getElementById('samsung').style.display='';
+  // Scroll
+  setTimeout(()=>{ const t = document.querySelector('.brand-sec[data-brand="'+brand+'"]'); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); },120);
 }
-
-render(productos);
-
-/* BUSCADOR */
-document.getElementById("buscador").addEventListener("input",e=>{
-const texto=e.target.value.toLowerCase();
-render(productos.filter(p=>p.nombre.toLowerCase().includes(texto)));
-});
-
 </script>
-
 </body>
 </html>
